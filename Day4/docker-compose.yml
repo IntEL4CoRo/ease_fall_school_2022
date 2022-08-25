@@ -10,7 +10,7 @@ services:
 
   # the KnowRob container
   knowrob:
-    image: "sasjonge/knowrob_cloud"
+    image: "sasjonge/knowrob_fs2022"
     container_name: knowrob_container
     depends_on:
       - 'mongo'
