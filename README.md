@@ -1,10 +1,11 @@
-# ease_fall_school_2022
+# EASE Fall School 2022
 
-**WIP**
+**TODOs**
 
 * Introductory text about the fall school, docker, jupyter
-* Add Windows install
-* Add Mac install
+* Add directory for the other lectures and create a readme at least, if they don't use docker
+* Add Windows Docker install
+* Add Mac Docker install
 * don't use docker desktop, it's just too inconcistent to set up and all the docker commands are the same for all platforms
 
 ## Docker Setup
