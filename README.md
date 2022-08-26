@@ -13,8 +13,8 @@
 
 Install utility software first
 ```
-sudo apt-get update
-sudo apt-get install \
+sudo apt update
+sudo apt install \
     ca-certificates \
     curl \
     gnupg \
@@ -30,7 +30,7 @@ echo \
 ```
 Install docker-compose
 ```
-sudo apt-get install docker-compose
+sudo apt install docker-compose
 ```
 #### Linux Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
 ```
