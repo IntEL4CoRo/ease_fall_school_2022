@@ -8,25 +8,47 @@ Introductory text about the fall school, docker, jupyter
 
 ### Linux
 
-- **mabe just do docker dektop**
-
+Install utility software first
 ```
-sudo apt install docker.io
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 ```
-
-Troubleshoot when using docker:
-
-Check if docker is active run: `sudo systemctl status docker`. If status is not active, activate it run: `sudo systemctl enable --now docker`
-
-- To install docker-compose
+Get keyring and Docker's package references
 ```
-sudo apt install docker-compose
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
-- **ADD POSTINSTALL GUIDE**
-Note: it is recommended to create docker group refer: https://docs.docker.com/engine/install/linux-postinstall/, However not mandatory.
+Install docker-compose
+```
+sudo apt-get install docker-compose
+```
+#### Linux Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
+```
+sudo groupadd docker # this may have already happened by installing docker
+sudo usermod -aG docker $USER
+newgrp docker # Or re-login to activate the changes in the usergroup
+```
+Test installation and postinstall with 
+```
+docker run hello-world
+```
+Allow docker to open x-Applications, like the robot simulator
+```
+xhost +local:docker
+```
+#### Troubleshoot when using docker:
 
-- Allow docker to open x-Applications, like the robot simulator
-`xhost +local:docker`
+Check if the docker service is active: 
+```
+sudo systemctl restart docker.service
+```
 
 ### Windows
 - **Write install guide explicitly** 
