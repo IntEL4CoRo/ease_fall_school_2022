@@ -29,10 +29,12 @@ Note: it is recommended to create docker group refer: https://docs.docker.com/en
 `xhost +local:docker`
 
 ### Windows
-- put link to install guide
+- **Write install guide explicitly** 
+https://docs.docker.com/desktop/install/windows-install/
 
 ### Mac
-- put link to install guide
+- **Write install guide explicitly** 
+https://docs.docker.com/desktop/install/mac-install/
 
 ## Getting the Lecture's docker container
 
