@@ -8,5 +8,5 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
-      - ./lectures:/home/cram_lectures
+      - ./lectures:/home/lectures
     network_mode: host
