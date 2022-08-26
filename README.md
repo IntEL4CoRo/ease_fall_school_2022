@@ -2,7 +2,10 @@
 
 **WIP**
 
-Introductory text about the fall school, docker, jupyter
+* Introductory text about the fall school, docker, jupyter
+* Add Windows install
+* Add Mac install
+* don't use docker desktop, it's just too inconcistent to set up and all the docker commands are the same for all platforms
 
 ## Docker Setup
 
@@ -45,10 +48,23 @@ xhost +local:docker
 ```
 #### Troubleshoot when using docker:
 
-Check if the docker service is active: 
+When `docker run hello-world` doesn't work because of missing permissions, check
+```
+groups
+```
+and see if `docker` is listed. If it's not, check the *Linux Posinstall* above. If it is, re-login or reboot you machine to reset user permissions.
+
+If `docker-compose up` (see below, when starting a lecture) complains about connectivity issues, restart the docker service and socket:
 ```
 sudo systemctl restart docker.service
+sudo systemctl restart docker.socket
 ```
+
+If it still doesn't work, reinstall docker. First remove the current installation
+```
+sudo apt prune docker-compose
+```
+and start from the top. `docker-compose` installs all the other required docker packages to run the lecture.
 
 ### Windows
 - **Write install guide explicitly** 
@@ -57,6 +73,14 @@ https://docs.docker.com/desktop/install/windows-install/
 ### Mac
 - **Write install guide explicitly** 
 https://docs.docker.com/desktop/install/mac-install/
+
+## Cleaning up docker images
+
+Docker can clutter your machine a lot, especially when you build your own images. Use the following commands to get rid uf unused images and containers.
+```
+docker image prune
+docker container prune
+```
 
 ## Getting the Lecture's docker container
 
