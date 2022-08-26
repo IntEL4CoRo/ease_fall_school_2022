@@ -1,0 +1,27 @@
+# version: '3'
+# services:  
+# # the giskard container
+#   cram:
+# #    image: "bhavyawadhwa/cram:testing"
+# #    container_name: container_cram
+#     image: "cram_image"
+#     container_name: cram_container
+#     network_mode: host
+#     privileged: true
+#     environment:
+#       - DISPLAY=${DISPLAY}
+#     volumes:
+#       - "$HOME/.Xauthority:/root/.Xauthority:rw"
+#     network_mode: host
+version: '3'
+services:  
+  cram:
+    image: "arthurniedz/cram:latest"
+    container_name: cram_container
+    network_mode: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ./lectures:/home/cram_lectures
+    network_mode: host
