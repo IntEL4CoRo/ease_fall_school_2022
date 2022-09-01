@@ -29,7 +29,7 @@ services:
   knowrob:
     image: "sasjonge/knowrob_fs2022"
     container_name: knowrob_neem_gen
-    user: '1000:${UID}'
+    user: '${UID}:${GID}'
     depends_on:
       - 'mongo'
     environment:
