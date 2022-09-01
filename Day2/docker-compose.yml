@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  #cram container
+  cram:
+    image: "arthurniedz/cram:latest"
+    container_name: cram_neem_gen
+    network_mode: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - KNOWROB_MEMORY_DIR=/home/neem_data
+    volumes:
+      - "$HOME/.Xauthority:/root/.Xauthority:rw"
+      - ./lectures:/home/lectures
+      - ./launch:/launch
+    network_mode: host
+    entrypoint: ["/launch/cram_launch.sh"]
+  #mongo container
+  mongo:
+    image: mongo:4.4.3-bionic
+    container_name: mongo_neem_gen
+    ports:
+      - 127.0.0.1:27018:27017
+    logging:
+      driver: "none"
+
+  # the KnowRob container
+  knowrob:
+    image: "sasjonge/knowrob_fs2022"
+    container_name: knowrob_neem_gen
+    depends_on:
+      - 'mongo'
+    environment:
+      - KNOWROB_MONGODB_URI=mongodb://127.0.0.1:27018/?appname=knowrob
+      - KNOWROB_MONGO_HOST=127.0.0.1
+      - KNOWROB_MONGO_PORT=27018
+      - KNOWROB_MONGO_USER=
+      - KNOWROB_MONGO_PASS=
+    network_mode: host
+    privileged: true
+    entrypoint: ["/run_knowrob_local.sh"]
+    volumes:
+      - ./prolog:/prolog
+      - ./data:/home/neem_data
