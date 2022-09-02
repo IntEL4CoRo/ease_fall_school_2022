@@ -5,4 +5,4 @@ export THIS_IP=$(ifconfig 'docker0' | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*
 sleep 2
 echo ""
 echo ""
-jupyter-lab --allow-root --no-browser --port 8888 --ip=$THIS_IP
+jupyter-lab --allow-root --no-browser --port 8888 --ip=0.0.0.0
