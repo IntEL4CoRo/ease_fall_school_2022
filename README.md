@@ -76,7 +76,7 @@ and start from the top. `docker-compose` installs all the other required docker 
 https://docs.docker.com/desktop/install/windows-install/
 
 Open Powershell as administrator
-* `wsl --install -d Wubuntu-20.04`
+* `wsl --install -d Ubuntu-20.04`
 
 ### Mac
 - **Write install guide explicitly** 
