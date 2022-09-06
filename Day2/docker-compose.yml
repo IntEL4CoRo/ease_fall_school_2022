@@ -10,13 +10,14 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - KNOWROB_MEMORY_DIR=/home/neem_data
+      # - KNOWROB_MEMORY_DIR=/home/mineumann/NEEMTemps
     volumes:
       - "$HOME/.Xauthority:/root/.Xauthority:rw"
       - ./lectures:/home/lectures
       - ./launch:/launch
     network_mode: host
     entrypoint: ["/launch/cram_launch.sh"]
-  #mongo container
+  # mongo container
   mongo:
     image: mongo:4.4.3-bionic
     container_name: mongo_neem_gen
