@@ -75,8 +75,12 @@ and start from the top. `docker-compose` installs all the other required docker 
 - **Write install guide explicitly** 
 https://docs.docker.com/desktop/install/windows-install/
 
-Open Powershell as administrator
+#### Install WSL2 (Windows Subsystem for Linux)
+https://docs.microsoft.com/en-us/windows/wsl/install
+* Open Powershell as administrator
 * `wsl --install -d Ubuntu-20.04`
+* [upgrade to WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+* [install docker desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows)
 
 ### Mac
 - **Write install guide explicitly** 
