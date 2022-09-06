@@ -8,6 +8,10 @@
 * Add Mac Docker install
 * don't use docker desktop, it's just too inconcistent to set up and all the docker commands are the same for all platforms
 
+## Enable Hardware-Virtualization
+
+https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization
+
 ## Docker Setup
 
 ### Linux
