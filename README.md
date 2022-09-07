@@ -10,7 +10,7 @@
 
 ## Enable Hardware-Virtualization
 
-VT-x for intel, AMD-V for AMD chips, Hyper-V for nested VMs
+VT-x for intel, AMD-V for AMD chips
 
 https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization
 
