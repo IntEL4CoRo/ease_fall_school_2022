@@ -17,9 +17,8 @@ https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization
 
 ## Docker Setup
 
-<details>
-<summary>Linux</summary>
-<br>
+<details><summary>Linux</summary>
+
 Install utility software first
 ```
 sudo apt update
@@ -29,6 +28,7 @@ sudo apt install \
     gnupg \
     lsb-release
 ```
+
 </details>
 
 ### Linux
