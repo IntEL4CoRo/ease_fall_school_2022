@@ -10,8 +10,10 @@
 
 ## Enable Hardware-Virtualization
 
+VT-x for intel, AMD-V for AMD chips, Hyper-V for nested VMs
+
 https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization
-VT-x for intel, AMD-V for MAD chips, Hyper-V for nested VMs
+
 
 ## Docker Setup
 
