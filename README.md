@@ -6,7 +6,7 @@
 * Add directory for the other lectures and create a readme at least, if they don't use docker
 * Add Windows Docker install
 * Add Mac Docker install
-* don't use docker desktop, it's just too inconcistent to set up and all the docker commands are the same for all platforms
+* don't use docker desktop for linux, on windows there's no other option though
 
 ## Enable Hardware-Virtualization
 
@@ -84,6 +84,19 @@ https://docs.microsoft.com/en-us/windows/wsl/install
 * `wsl --install -d Ubuntu-20.04`
 * [upgrade to WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
 * [install docker desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows)
+* restart your PC to install the system updates
+* run Docker Desktop **as administrator** and wait. Launching Docker for the first time takes long.
+* in the meantime, install `xLauncher`
+* TODO: how to set up xLauncher
+
+* download this repository as zip and unzip it
+* open Powershell **as administrator**
+* Copy the path to the unzipped repository
+* navigate to that directory with `cd <the path that you copied>`
+* TODO: set DISPLAY Variable
+* in Powershell execute `docker-compose up`
+* wait for the image to be downloaded and executed
+* copy the 127.x.x.x URL and put it into your favourite browser
 
 ### Mac
 - **Write install guide explicitly** 
