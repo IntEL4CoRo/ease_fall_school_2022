@@ -86,8 +86,12 @@ https://docs.docker.com/desktop/install/windows-install/
 https://docs.microsoft.com/en-us/windows/wsl/install
 * Open Powershell as administrator
 * `wsl --install -d Ubuntu-20.04`
-* [upgrade to WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
-* [install docker desktop](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows)
+* upgrade to WSL 2
+  * [installer download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+  * [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+* install docker desktop
+  * [installer download](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+  * [documentation](https://docs.docker.com/desktop/install/windows-install/)
 * restart your PC to install the system updates
 * run Docker Desktop **as administrator** and wait. Launching Docker for the first time takes long.
 * in the meantime, install `xLauncher`
