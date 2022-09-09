@@ -1,0 +1,16 @@
+# docker-compose-windows.yml
+version: '3'
+services:
+  cram:
+    image: "arthurniedz/cram:latest"
+    container_name: cram_container
+    network_mode: bridge
+    privileged: true
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./lectures:/home/lectures
