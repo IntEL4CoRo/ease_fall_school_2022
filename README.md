@@ -79,29 +79,24 @@ and start from the top. `docker-compose` installs all the other required docker 
 <details>
     <summary>Windows</summary>
 
-- **Write install guide explicitly** 
-https://docs.docker.com/desktop/install/windows-install/
-
-#### Install WSL2 (Windows Subsystem for Linux)
-https://docs.microsoft.com/en-us/windows/wsl/install
-* Open Powershell as administrator
-* `wsl --install -d Ubuntu-20.04`
-* upgrade to WSL 2
-  * [installer download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-  * [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+* Install WSL2 (Windows Subsystem for Linux)
+  * Open Powershell **as administrator**
+  * `wsl --install -d Ubuntu-20.04`
+  * upgrade to WSL 2
+    * [installer download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+    * [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
 * install docker desktop
   * [installer download](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
   * [documentation](https://docs.docker.com/desktop/install/windows-install/)
-* restart your PC to install the system updates
-* run Docker Desktop **as administrator** and wait. Launching Docker for the first time takes long.
-* in the meantime, install `xLauncher`
-* TODO: how to set up xLauncher
+  * restart your PC to install the system updates
+  * run Docker Desktop **as administrator** and wait. Launching Docker for the first time takes long.
+
+* **TODO: install and setup xLaunch and configure xhost access and DISPLAY setup**
 
 * download this repository as zip and unzip it
 * open Powershell **as administrator**
 * Copy the path to the unzipped repository
 * navigate to that directory with `cd <the path that you copied>`
-* TODO: set DISPLAY Variable
 * in Powershell execute `docker-compose up`
 * wait for the image to be downloaded and executed
 * copy the 127.x.x.x URL and put it into your favourite browser
