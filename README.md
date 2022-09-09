@@ -92,6 +92,9 @@ and start from the top. `docker-compose` installs all the other required docker 
   * run Docker Desktop **as administrator** and wait. Launching Docker for the first time takes long.
 
 * **TODO: install and setup xLaunch and configure xhost access and DISPLAY setup**
+* install xMing
+  * [documentation](http://www.straightrunning.com/XmingNotes/)
+  * [installer download](https://sourceforge.net/projects/xming/files/Xming/6.9.0.31/Xming-6-9-0-31-setup.exe/download)
 
 * download this repository as zip and unzip it
 * open Powershell **as administrator**
