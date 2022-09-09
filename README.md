@@ -6,7 +6,7 @@
 * Add directory for the other lectures and create a readme at least, if they don't use docker
 * Add Windows Docker install
 * Add Mac Docker install
-* don't use docker desktop for linux, on windows there's no other option though
+* Don't use docker desktop for linux, on windows there's no other option though
 
 ## Enable Hardware-Virtualization
 
