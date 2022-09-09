@@ -123,7 +123,7 @@ docker container prune
 ## Getting the Lecture's docker container
 
 1. Download this repo as zip and unpack it
-2. Open the terminal (bash, powershell, etc.) and change-directory to the repo (right-click in the unzipped repository)
+2. Open the terminal (bash, powershell, etc.) and change-directory (`cd`) to the repo
 3. Navigate to `DayX` (e.g. `Day1`)
 4. Execute `docker-compose --file docker-compose-<your OS specific suffix> up` and wait for the image to be pulled
       (for Windows users it's `docker compose ...` without the dash)
