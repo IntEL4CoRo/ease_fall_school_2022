@@ -96,8 +96,8 @@ and start from the top. `docker-compose` installs all the other required docker 
 * download this repository as zip and unzip it
 * open Powershell **as administrator**
 * Copy the path to the unzipped repository
-* navigate to that directory with `cd <the path that you copied>`
-* in Powershell execute `docker-compose up`
+* navigate to that directory and into a specific `DayX` with `cd <the path that you copied>`
+* in Powershell, execute `docker compose --file <the docker-compose yml file name for Windows> up`
 * wait for the image to be downloaded and executed
 * copy the 127.x.x.x URL and put it into your favourite browser
 
