@@ -1,4 +1,5 @@
 # docker-compose-windows.yml
+# docker compose --file docker-compose-windows.yml up
 version: '3'
 services:
   cram:
