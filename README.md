@@ -125,5 +125,6 @@ docker container prune
 
 1. Download this repo as zip and unpack it
 2. Open the terminal (bash, powershell, etc.) and change-directory to the repo (right-click in the unzipped repository)
-3. Navigate to `Day1`
-4. Execute `docker-compose up` and wait for the image to be pulled
+3. Navigate to `DayX` (e.g. `Day1`)
+4. Execute `docker-compose --file docker-compose-<your OS specific suffix> up` and wait for the image to be pulled
+5. copy the URL from the terminal into your favourite browser
