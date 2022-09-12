@@ -5,8 +5,14 @@ services:
   cram:
     image: "arthurniedz/cram:latest"
     container_name: cram_neem_gen
-    network_mode: host
+    network_mode: bridge
     privileged: true
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       - DISPLAY=${DISPLAY}
       - KNOWROB_MEMORY_DIR=/home/neem_data
@@ -20,9 +26,13 @@ services:
   mongo:
     image: mongo:4.4.3-bionic
     container_name: mongo_neem_gen
-    network_mode: host
-    # ports:
-    #   - 127.0.0.1:27018:27017
+    network_mode: bridge
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     logging:
       driver: "none"
 
@@ -39,7 +49,13 @@ services:
       - KNOWROB_MONGO_PORT=27017
       - KNOWROB_MONGO_USER=
       - KNOWROB_MONGO_PASS=
-    network_mode: host
+    network_mode: bridge
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     privileged: true
     entrypoint: ["/run_knowrob_local.sh"]
     volumes:
