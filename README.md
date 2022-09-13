@@ -82,9 +82,14 @@ and start from the top. `docker-compose` installs all the other required docker 
 * Install WSL2 (Windows Subsystem for Linux)
   * Open Powershell **as administrator**
   * `wsl --install -d Ubuntu-20.04`
+  * `wsl -l` shows the installed distros. make sure that Ubuntu-20.04 is among them. Otherwise install it again. If that doesn't work, check if Hwardware Virtualization is enabled in the BIOS and try again.
   * upgrade to WSL 2
     * [installer download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
     * [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+  * In Powershell: `wsl` should get you into the Ubuntu-20.04 system
+    * Update package references with `sudo apt update`
+    * Install updates with `sudo apt upgrade`
+    * Install opengl with `sudo apt install mesa-utils`
 * install docker desktop
   * [installer download](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
   * [documentation](https://docs.docker.com/desktop/install/windows-install/)
