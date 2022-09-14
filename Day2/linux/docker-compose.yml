@@ -13,8 +13,8 @@ services:
       # - KNOWROB_MEMORY_DIR=/home/mineumann/NEEMTemps
     volumes:
       - "$HOME/.Xauthority:/root/.Xauthority:rw"
-      - ./lectures:/home/lectures
-      - ./launch:/launch
+      - ../lectures:/home/lectures
+      - ../launch:/launch
     entrypoint: ["/launch/cram_launch.sh"]
   # mongo container
   mongo:
@@ -43,5 +43,5 @@ services:
     privileged: true
     entrypoint: ["/run_knowrob_local.sh"]
     volumes:
-      - ./prolog:/prolog
-      - ./data:/home/neem_data
+      - ../prolog:/prolog
+      - ../data:/home/neem_data
