@@ -1,5 +1,7 @@
 # EASE Fall School 2022
 
+This guide is for the lectures that run in a virtualized enviroment, which are Day1, Day2 and Day4.
+
 **TODOs**
 
 * Introductory text about the fall school, docker, jupyter
@@ -13,10 +15,29 @@
 
 ## Enable Hardware-Virtualization
 
+Hardware Virtualization is a setting for your CPU, that enables it to run virtual operating systems on your host machine. Depending on your host system, the lectures of the Fall School run in Docker, the Windows Subsystem for Linux or a VirtualBox VM. All of these option use virtualization of another operating system underneath your existing one. We offer our software like that, such that we can ensure that it runs on a manifold of different systems. 
+
 VT-x for intel, AMD-V for AMD chips
 
 https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization
 
+### Get into your BIOS
+
+On Linux, shutdown the machine and boot after that (rebooting sometimes doesn't load the BIOS with fast-boot settings)
+
+On Windows, go to the Windows menu (bottom left) > Power > hold the Shift-key while clicking Restart. It will reboot into a blue UI. Choose Troubleshoot, Change behaviour on boot, Restart. This prevents Windows from fast-booting.
+
+When the mainboard prompts, press one of the suggested buttons (F2, F9, F12, DEL, etc.), or do so while it boots like once a second. Go to 'Advanced' and serach for Hardware Virtualization, VT-x or AMD-V, something like that. The menus are different for every mainboard. Save and boot.
+
+On Windows it offers some options for recovery, which is from the chose troubleshoot before, but just ESC out of it.
+
+## How do you want to do this?
+
+Depending on your system, your choice may be limited. but we got you covered. These are the options we offer:
+
+* Docker image: Linux native (tested with Debian), Windows with WSL2 and VcXsrv (tested with Win10 and Intel i7-4770K), and Mac (?!?)
+* WSL2 image tar-ball: as fallback for other Windows systems
+* VirtualBox image: fallback for AMD CPUs and any OS whatsoever
 
 ## Docker Setup
 
@@ -81,7 +102,7 @@ and start from the top. `docker-compose` installs all the other required docker 
 
 <details>
     <summary>Windows</summary>
-Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem for Linux (WSL). And since we are running the robot simulation as an OpenGL application in the Docker container, we also need proper x-forwarding back to the Windows display to visualize it.
+Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem for Linux (WSL). And since we are running the robot simulation as an OpenGL application in the Docker container, we also need proper x-forwarding back to the Windows display to visualize it. Check the [docker install](https://docs.docker.com/desktop/install/windows-install/) and [WSL with VcXsrv x-server](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3) guides yourself if you want, this is the gist of it. 
 
 #### Set up Ubuntu 20.04 with WSL2
     
@@ -104,28 +125,58 @@ Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem fo
   * In the Powersehll: `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again, the iprevious install may have been interrupted by something. If that still doesn't work, check **Enable Hardware-Virtualization** at the top of this readme.
   * `wsl --set-default Ubuntu-20.04` sets the fresh distro as default.
 * Update the Ubuntu 20.04 distro and install OpenGL utils
-  * Open the **Ubuntu shell** with `Windows`-key, 'Ubuntu', execute.
+  * Open the **Ubuntu shell** with `Windows`-key, 'Ubuntu', Enter.
   * `sudo apt update` updates package references
   * `sudo apt upgrade` installs updates. This may take a while...
   * `sudo apt install mesa-utils` installs OpenGL utilities to test the x-forwarding
+  
+    
+Congratulations, you got yourself a Linux system running on Windows. 
 
-#### Set up VcXsrv for x-forwarding OpenGL applications
+#### Set up VcXsrv as x-server for OpenGL applications
 
+VcXsrv is an X-server, that is able to visualize OpenGL application from remote connections. We use it, because the Docker container is a kind of headless machine that  can only render the robot-simulator internally, but can not visualize without a display to show it. VcXsrv is providing the display such that the Docker application can connect to that display. [This guide](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3) is the foundation for ours.
+    
+* [Download and install VcXsrv](https://sourceforge.net/projects/vcxsrv/)
+* Go to the installed folder, it should be in `C:\Program Files\VcXsrv`
+* Right-click the `vcxsrv.exe` to `Create shortcut` to the desktop
+* Configure the `VcXsrv.exe - Shortcut`
+    * Go to the Desktop and right-click the shortcut, select `Properties` > `Shortcut` > `Target` and append the following to the existing entry:
+    * ` :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto`
+    * Then it should look somewhat like this: `"C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto`
+    * `OK` out of the window
+* Execute the shortcut of VcXsrv. It appears that nothing happens. Check the tray icons in the bottom-left corner, there it should show it.
+* Adjust Firewall settings
+    * Since the display connection is something that Windows' Firewall classifies as dangerous, we need to allow that connection.
+    * Open Firewall settings with `Windows`-key, 'firewall with advanced', enter
+    ![fw-settings](https://user-images.githubusercontent.com/13121212/190249123-947acf13-17ed-4654-b78f-d0b160ef9303.PNG)
 
+* Test the VcXsrv server
+    * Open the **Ubuntu shell** with `Windows`-key, 'Ubuntu', Enter
+    * `echo $'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk \'{print $2}\'):0.0' >> ~/.bashrc`
+      * This will automatically read the address of the VcXsrv display and set the environment variable `DISPLAY` to that address, every time you open the Ubuntu shell.
+      * `source ~/.bashrc` to update the DISPLAY variable from our global changes
+      * `echo $DISPLAY` to check if it is set to something like `127.xx.xx.xx:0.0`
+    * `glxgears` will open up a windows with moving gears.
+    * If that works, the VcXsrv OpenGL forwarding is set up successfully!
+    * If `glxgears` is stuck for a long time or unable to find the display, check the `DISPLAY` variable in your Ubuntu shell and Firewall settings again.
+    * If `glxgears` command couldn't be found, do `sudo apt install mesa-utils` to get it.
 
-* install docker desktop
+#### Install Docker
+    
+* Install docker desktop
   * [installer download](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
   * [documentation](https://docs.docker.com/desktop/install/windows-install/)
   * restart your PC to install the system updates
-  * run Docker Desktop **as administrator** and wait. Launching Docker for the first time takes long.
-
-* **TODO: install and setup xLaunch and configure xhost access and DISPLAY setup**
-* install xMing
-  * [documentation](http://www.straightrunning.com/XmingNotes/)
-  * [installer download](https://sourceforge.net/projects/xming/files/Xming/6.9.0.31/Xming-6-9-0-31-setup.exe/download)
-
-* download this repository as zip and unzip it
-* open Powershell **as administrator**
+  * run Docker Desktop **as administrator**
+    * Accept the license agreements
+    * Wait for the status indicator to turn from yellow to green
+      * If it turns to red, check **Enable Hardware-Virtualization** (at the beginning of this readme) to enable VMs in your BIOS settings
+  
+#### Get the lecture  
+    
+* Download this repository as zip and unzip it
+* Open Powershell **as administrator**
 * Copy the path to the unzipped repository
 * navigate to that directory and into a specific `DayX` with `cd <the path that you copied>`
 * in Powershell, execute `docker compose --file <the docker-compose yml file name for Windows> up`
