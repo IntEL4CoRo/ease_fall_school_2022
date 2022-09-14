@@ -11,4 +11,3 @@ services:
       - DISPLAY=${DISPLAY}
     volumes:
       - ./lectures:/home/lectures
-    network_mode: host
