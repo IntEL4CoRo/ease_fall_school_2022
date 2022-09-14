@@ -8,6 +8,9 @@
 * Add Mac Docker install
 * Don't use docker desktop for linux, on windows there's no other option though
 
+* Add Virtualbox VM option for AMD and non-x86 architectures, and Mac if that doesn't work
+* Add screenshots for firewall setup in windows
+
 ## Enable Hardware-Virtualization
 
 VT-x for intel, AMD-V for AMD chips
@@ -80,6 +83,8 @@ and start from the top. `docker-compose` installs all the other required docker 
     <summary>Windows</summary>
 Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem for Linux (WSL). And since we are running the robot simulation as an OpenGL application in the Docker container, we also need proper x-forwarding back to the Windows display to visualize it.
 
+#### Set up Ubuntu 20.04 with WSL2
+    
 * Activate Windows Subsystem for Linux
   * Press the `Windows` key, type `features` and execute `Turn Windows Features on or off`
   * Scroll down to `Windows Subsystem for Linux` and check the box
@@ -90,18 +95,24 @@ Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem fo
 * Install the Ubuntu 20.04 distribution
   * Open Powershell **as administrator**
   * `wsl --set-default-version 2` to set WSL2 as default
-  * `wsl --list --version` checks installed distributions, it should be empty.
+  * `wsl --list --version` checks installed distributions, it should be empty
     * `wsl --export Ubuntu-20.04 ./Ubuntu2004Backup.tar` can export your existing Ubuntu 20.04 distro, if you already installed one and want to keep it. Then remove it from wsl with `wsl --unregister Ubuntu-20.04`. You can import it back later like this: `wsl --import backup C:\Users\test\Documents\Ubuntu2004Backup C:\Users\test\Documents\Ubuntu2004Backup.tar ` [which is explained here](https://4sysops.com/archives/export-and-import-windows-subsystem-for-linux-wsl/).
   * `wsl --list --online` shows all available Linux distribution that can be installed
   * `wsl --install -d Ubuntu-20.04` will open a window, which is the **Ubuntu shell** installing itself.
   * This may take a while...
   * In the Ubuntu shell, specify username and password when the install is done. Keep it simple, it's just for experimental purpose.
-  * In the Powersehll: `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again, the iprevious instal may have been interrupted by something. If that still doesn't work, check **Enable Hardware-Virtualization** at the top of this readme.
+  * In the Powersehll: `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again, the iprevious install may have been interrupted by something. If that still doesn't work, check **Enable Hardware-Virtualization** at the top of this readme.
   * `wsl --set-default Ubuntu-20.04` sets the fresh distro as default.
-* Update the Ubuntu 20.04 distro 
-  * Update package references with `sudo apt update`
-  * Install updates with `sudo apt upgrade`
-  * Install opengl with `sudo apt install mesa-utils`
+* Update the Ubuntu 20.04 distro and install OpenGL utils
+  * Open the **Ubuntu shell** with `Windows`-key, 'Ubuntu', execute.
+  * `sudo apt update` updates package references
+  * `sudo apt upgrade` installs updates. This may take a while...
+  * `sudo apt install mesa-utils` installs OpenGL utilities to test the x-forwarding
+
+#### Set up VcXsrv for x-forwarding OpenGL applications
+
+
+
 * install docker desktop
   * [installer download](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
   * [documentation](https://docs.docker.com/desktop/install/windows-install/)
