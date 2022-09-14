@@ -78,7 +78,12 @@ and start from the top. `docker-compose` installs all the other required docker 
 
 <details>
     <summary>Windows</summary>
+Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem for Linux (WSL). And since we are running the robot simulation as an OpenGL application in the Docker container, we also need proper x-forwarding back to the Windows display to visualize it.
 
+1. Set up Windows Subsystem for Linux
+* Activate Windows Subsystem for Linux
+  * Press the `Windows` key, type `features` and execute `Turn Windows Features on or off`
+  * Scroll down to `Windows Subsystem for Linux` and check the box
 * Install WSL2 (Windows Subsystem for Linux)
   * Open Powershell **as administrator**
   * `wsl --install -d Ubuntu-20.04`
