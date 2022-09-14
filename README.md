@@ -80,17 +80,20 @@ and start from the top. `docker-compose` installs all the other required docker 
     <summary>Windows</summary>
 Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem for Linux (WSL). And since we are running the robot simulation as an OpenGL application in the Docker container, we also need proper x-forwarding back to the Windows display to visualize it.
 
-**Set up Windows Subsystem for Linux**
 * Activate Windows Subsystem for Linux
   * Press the `Windows` key, type `features` and execute `Turn Windows Features on or off`
   * Scroll down to `Windows Subsystem for Linux` and check the box
-* Install WSL2 (Windows Subsystem for Linux)
+* Upgrade to WSL2, it's got important functionality
+  * Check, if your CPU is capable of WSL2 with the Powershell command `systeminfo` and look for 'System Type' (in your machines language, e.g. 'Systemtyp' in german). it must be an x64-based architecture. If it's not, use the Virtualbox VM instead.
+  * [WSL2 upgrade installer download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+  * [WSL2 upgrade documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+* Install the Ubuntu 20.04 distribution
   * Open Powershell **as administrator**
-  * `wsl --install -d Ubuntu-20.04`
-  * `wsl -l` shows the installed distros. make sure that Ubuntu-20.04 is among them. Otherwise install it again. If that doesn't work, check if Hwardware Virtualization is enabled in the BIOS and try again.
+  * `wsl --list --online` shows all available Linux distribution that can be installed
+  * `wsl --install -d Ubuntu-20.04` because Ubuntu 20.04 is that we're working with
+  * `wsl --list --version` checks the installed distributions.  Make sure that Ubuntu-20.04 is among them. Otherwise install it again. If that doesn't work, check if Hardware Virtualization is enabled in the BIOS and try again.
   * upgrade to WSL 2
-    * [installer download](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-    * [documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
+    
   * In Powershell: `wsl` should get you into the Ubuntu-20.04 system
     * Update package references with `sudo apt update`
     * Install updates with `sudo apt upgrade`
