@@ -91,17 +91,17 @@ Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem fo
   * Open Powershell **as administrator**
   * `wsl --set-default-version 2` to set WSL2 as default
   * `wsl --list --version` checks installed distributions, it should be empty.
-    * `wsl --export Ubuntu-20.04 ./Ubuntu2004Backup.tar` can export your existing Ubuntu 20.04 distro, if you already installed one and want to keep it. Then remove it from wsl with `wsl --unregister Ubuntu-20.04`. You can import it back later, [which is explained here](https://4sysops.com/archives/export-and-import-windows-subsystem-for-linux-wsl/).
+    * `wsl --export Ubuntu-20.04 ./Ubuntu2004Backup.tar` can export your existing Ubuntu 20.04 distro, if you already installed one and want to keep it. Then remove it from wsl with `wsl --unregister Ubuntu-20.04`. You can import it back later like this: `wsl --import backup C:\Users\test\Documents\Ubuntu2004Backup C:\Users\test\Documents\Ubuntu2004Backup.tar ` [which is explained here](https://4sysops.com/archives/export-and-import-windows-subsystem-for-linux-wsl/).
   * `wsl --list --online` shows all available Linux distribution that can be installed
-  * `wsl --install -d Ubuntu-20.04` because Ubuntu 20.04 is that we're working with.
-  * this may take a while...
-  * `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again. If that doesn't work, check if Hardware Virtualization is enabled in the BIOS and try again.
-  * upgrade to WSL 2
-    
-  * In Powershell: `wsl` should get you into the Ubuntu-20.04 system
-    * Update package references with `sudo apt update`
-    * Install updates with `sudo apt upgrade`
-    * Install opengl with `sudo apt install mesa-utils`
+  * `wsl --install -d Ubuntu-20.04` will open a window, which is the **Ubuntu shell** installing itself.
+  * This may take a while...
+  * In the Ubuntu shell, specify username and password when the install is done. Keep it simple, it's just for experimental purpose.
+  * In the Powersehll: `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again, the iprevious instal may have been interrupted by something. If that still doesn't work, check **Enable Hardware-Virtualization** at the top of this readme.
+  * `wsl --set-default Ubuntu-20.04` sets the fresh distro as default.
+* Update the Ubuntu 20.04 distro 
+  * Update package references with `sudo apt update`
+  * Install updates with `sudo apt upgrade`
+  * Install opengl with `sudo apt install mesa-utils`
 * install docker desktop
   * [installer download](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
   * [documentation](https://docs.docker.com/desktop/install/windows-install/)
