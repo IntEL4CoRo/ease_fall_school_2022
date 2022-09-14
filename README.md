@@ -89,8 +89,9 @@ Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem fo
   * [WSL2 upgrade documentation](https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package)
 * Install the Ubuntu 20.04 distribution
   * Open Powershell **as administrator**
-  * if you already have an Ubuntu 20.04 distro installed on you machine, save it with `wsl --export Ubuntu-20.04 <some path and filename where you want to export it to>.tar`, then remove it from wsl with `wsl --unregister Ubuntu-20.04`. You can import it back later with `wsl –import <Image Name you choose> <Directory to store and run the image> <Directory location of the exported .tar file>`. [source](https://4sysops.com/archives/export-and-import-windows-subsystem-for-linux-wsl/)
   * `wsl --set-default-version 2` to set WSL2 as default
+  * `wsl --list --version` checks installed distributions, it should be empty.
+    * if you already have an Ubuntu 20.04 distro installed in your WSL (others are fine), save it with `wsl --export Ubuntu-20.04 ./Ubuntu2004Backup.tar`, which creates a TAR file at the specified location. Then remove it from wsl with `wsl --unregister Ubuntu-20.04`. You can import it back later, [which is explained here](https://4sysops.com/archives/export-and-import-windows-subsystem-for-linux-wsl/).
   * `wsl --list --online` shows all available Linux distribution that can be installed
   * `wsl --install -d Ubuntu-20.04` because Ubuntu 20.04 is that we're working with.
   * this may take a while...
