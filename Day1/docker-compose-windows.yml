@@ -15,3 +15,8 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./lectures:/home/lectures
+    # open WSL
+    # assign DISPLAY to the output of the WSL display address:
+    # echo $(grep nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+    environment:
+      - DISPLAY='replaceme' # 192.168.101.141:0.0 # 172.21.48.1:0.0
