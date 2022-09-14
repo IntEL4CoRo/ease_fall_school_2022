@@ -27,9 +27,9 @@ On Linux, shutdown the machine and boot after that (rebooting sometimes doesn't 
 
 On Windows, go to the Windows menu (bottom left) > Power > hold the Shift-key while clicking Restart. It will reboot into a blue UI. Choose Troubleshoot, Change behaviour on boot, Restart. This prevents Windows from fast-booting.
 
-When the mainboard prompts, press one of the suggested buttons (F2, F9, F12, DEL, etc.), or do so while it boots like once a second. Go to 'Advanced' and serach for Hardware Virtualization, VT-x or AMD-V, something like that. The menus are different for every mainboard. Save and boot.
+When the mainboard prompts, press one of the suggested buttons (F2, F9, F12, DEL, etc.), or do so while it boots like once a second. Go to 'Advanced' and search for Hardware Virtualization, VT-x or AMD-V, something like that. The menus are different for every mainboard. Save and boot.
 
-On Windows it offers some options for recovery, which is from the chose troubleshoot before, but just ESC out of it.
+On Windows it offers some options for recovery, which is from the chosen troubleshoot before. Just ESC out of it.
 
 ## How do you want to do this?
 
