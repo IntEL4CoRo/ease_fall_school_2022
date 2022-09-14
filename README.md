@@ -6,12 +6,8 @@ This guide is for the lectures that run in a virtualized enviroment, which are D
 
 * Introductory text about the fall school, docker, jupyter
 * Add directory for the other lectures and create a readme at least, if they don't use docker
-* Add Windows Docker install
 * Add Mac Docker install
-* Don't use docker desktop for linux, on windows there's no other option though
-
 * Add Virtualbox VM option for AMD and non-x86 architectures, and Mac if that doesn't work
-* Add screenshots for firewall setup in windows
 
 ## Enable Hardware-Virtualization
 
