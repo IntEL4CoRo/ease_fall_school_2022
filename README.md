@@ -181,7 +181,7 @@ VcXsrv is an X-server, that is able to visualize OpenGL application from remote 
 * Open Powershell **as administrator**
 * Copy the path to the unzipped repository
 * navigate to that directory and into a specific `DayX` with `cd <the path that you copied>`
-* in Powershell, execute `docker compose --file <the docker-compose yml file name for Windows> up`
+* in Powershell, execute `docker compose --file ./docker-compose-windows.yml up`
 * wait for the image to be downloaded and executed
 * copy the 127.x.x.x URL and put it into your favourite browser
 
