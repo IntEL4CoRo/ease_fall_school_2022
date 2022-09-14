@@ -175,15 +175,18 @@ VcXsrv is an X-server, that is able to visualize OpenGL application from remote 
     * Wait for the status indicator to turn from yellow to green
       * If it turns to red, check **Enable Hardware-Virtualization** (at the beginning of this readme) to enable VMs in your BIOS settings
   
-#### Get the lecture  
+#### Run the lecture  
     
 * Download this repository as zip and unzip it
+* Open the `docker-compose-windows.yml` in Day1 to adjust the DISPLAY variable
+    * In **Ubuntushell** check `echo $DISPLAY`
+    * Copy-paste the resulting address as value for `DISPLAY` in the `docker-compose-windows.yml`
 * Open Powershell **as administrator**
 * Copy the path to the unzipped repository
 * navigate to that directory and into a specific `DayX` with `cd <the path that you copied>`
 * in Powershell, execute `docker compose --file ./docker-compose-windows.yml up`
 * wait for the image to be downloaded and executed
-* copy the 127.x.x.x URL and put it into your favourite browser
+* copy the '127.x.x.x:8888/some-authentication-token' URL and put it into your favourite browser
 
 </details>
 
