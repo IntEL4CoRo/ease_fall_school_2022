@@ -5,7 +5,6 @@ This guide is for the lectures that run in a virtualized enviroment, which are D
 **TODOs**
 
 * Introductory text about the fall school, docker, jupyter
-* add lecture update with git
 * Add Mac Docker install (do we offer Docker for Mac?)
 
 ## Enable Hardware-Virtualization
@@ -34,7 +33,9 @@ Depending on your system, your choice may be limited. but we got you covered. Th
 * Option 2: WSL2 image tar-ball: recommended for Windows users
 * Option 3: VirtualBox image: fallback for AMD CPUs and any OS whatsoever
 
-In any case, update the lecture content with `cd <path to the EASE repo>` and then `git pull`, to get the latest version.
+## Update the lecture's content
+
+In any case, update the lecture content with `cd <path to the EASE repo>` and then `git pull`, to get the latest version. We're constantly adding new stuff, probably even a few moments before the lecture starts!
 
 ## Option 1: Docker Setup (recommended for Linux)
 
