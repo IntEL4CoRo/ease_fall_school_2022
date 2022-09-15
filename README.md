@@ -211,3 +211,32 @@ docker container prune
 4. Execute `docker-compose --file docker-compose-<your OS specific suffix> up` and wait for the image to be pulled
       (for Windows users it's `docker compose ...` without the dash)
 5. copy the URL from the terminal into your favourite browser
+
+## WSL2 image install (tested with Win10)
+
+Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker, at least for Windows host machines, because it utilized the GPU for rendering, while Docker only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. 
+    
+### Import the WSL image into your WSL
+
+1. Enable Hardware Virtualization
+2. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
+3. Set up WSL 2
+4. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
+4. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/8960a515395f4a96b97b/)
+5. Import the image into WSL from Powershell with 
+```
+wsl --import Ubuntu-20.04-Cram C:\Users\test\Documents\Ubuntu-20.04-Cram C:\Users\test\Downloads\Ubuntu2004RosCramJupyter.tar
+```
+6. Set the image as default with
+```
+wsl --set-default Ubuntu-20.04-Cram
+```
+7. Launch Ubuntu-20.04 from the windows menu.
+8. `glxgears` will test the xforwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
+
+### How to launch the lecture into jupyter notebook
+1. Download the lecture
+    * `wget <some directory for the lecture>`
+2. `roslaunch cram_pr2_pick_place_demo sandbox.launch &`
+3. `jupyter-lab --allow-root --no-browser --port 8888`
+4. Open the URL in your browser
