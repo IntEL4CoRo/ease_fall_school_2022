@@ -5,7 +5,6 @@ services:
   cram:
     image: "arthurniedz/cram:latest"
     container_name: cram_container
-    network_mode: host
     privileged: true
     ports:
       - "8888:8888"
