@@ -34,6 +34,8 @@ Depending on your system, your choice may be limited. but we got you covered. Th
 * Option 2: WSL2 image tar-ball: recommended for Windows users
 * Option 3: VirtualBox image: fallback for AMD CPUs and any OS whatsoever
 
+In any case, update the lecture content with `cd <path to the EASE repo>` and then `git pull`, to get the latest version.
+
 ## Option 1: Docker Setup (recommended for Linux)
 
 <details><summary>Linux</summary>
