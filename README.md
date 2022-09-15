@@ -65,7 +65,7 @@ sudo groupadd docker # this may have already happened by installing docker
 sudo usermod -aG docker $USER
 newgrp docker # Or re-login to activate the changes in the usergroup
 ```
-Start the docker daemon (`sudo dockerd` if you don't use systemctl, or use [this procedure](https://github.com/moby/moby/tree/master/contrib/init/systemd](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run dockerd automatically on boot)
+Start the docker daemon (`sudo dockerd` if you don't use systemctl, or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run dockerd automatically on boot)
 ```
 sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
