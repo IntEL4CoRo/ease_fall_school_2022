@@ -120,7 +120,7 @@ Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem fo
   * `wsl --install -d Ubuntu-20.04` will open a window, which is the **Ubuntu shell** installing itself.
   * This may take a while...
   * In the Ubuntu shell, specify username and password when the install is done. Keep it simple, it's just for experimental purpose.
-  * In the Powersehll: `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again, the iprevious install may have been interrupted by something. If that still doesn't work, check **Enable Hardware-Virtualization** at the top of this readme.
+  * In the Powersehll: `wsl --list --version` checks the installed distributions. Make sure that Ubuntu-20.04 is among them. Otherwise install it again, the previous install may have been interrupted by something. If that still doesn't work, check **Enable Hardware-Virtualization** at the top of this readme.
   * `wsl --set-default Ubuntu-20.04` sets the fresh distro as default.
 * Update the Ubuntu 20.04 distro and install OpenGL utils
   * Open the **Ubuntu shell** with `Windows`-key, 'Ubuntu', Enter.
@@ -143,7 +143,7 @@ VcXsrv is an X-server, that is able to visualize OpenGL application from remote 
     * ` :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto`
     * Then it should look somewhat like this: `"C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto`
     * `OK` out of the window
-* Execute the shortcut of VcXsrv. It appears that nothing happens. Check the tray icons in the bottom-left corner, there it should show it.
+* Execute the shortcut of VcXsrv. It appears that nothing happens. Check the tray icons in the bottom-right corner, there it should show it.
 * Adjust Firewall settings
     * Since the display connection is something that Windows' Firewall classifies as dangerous, we need to allow that connection.
     * Open Firewall settings with `Windows`-key, 'firewall with advanced', enter
