@@ -34,7 +34,7 @@ Depending on your system, your choice may be limited. but we got you covered. Th
 * WSL2 image tar-ball: as fallback for other Windows systems
 * VirtualBox image: fallback for AMD CPUs and any OS whatsoever
 
-## Option 1: Docker Setup
+## Option 1: Docker Setup (recommended for Linux)
 
 <details><summary>Linux</summary>
 
@@ -247,6 +247,6 @@ wsl --set-default Ubuntu-20.04-Cram
 
 The WSL image's username and password is `cram`.
     
-## Option 3: Use the VirtualBox image
+## Option 3: Use the VirtualBox image (recommended for MacOS and AMD users)
     
 If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://seafile.zfn.uni-bremen.de/d/0728fcdc7bb14db7819f/)
