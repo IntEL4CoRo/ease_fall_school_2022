@@ -77,7 +77,8 @@ docker run hello-world
 ```
 Allow docker to open x-Applications, like the robot simulator
 ```
-xhost +local:docker
+sudo apt install x11-xserver-utils # installs the utils to allow foreign displays
+xhost +local:docker # allows x-forwarding for the 'docker' group
 ```
 #### Troubleshoot when using docker:
 
