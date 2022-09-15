@@ -5,6 +5,7 @@ This guide is for the lectures that run in a virtualized enviroment, which are D
 **TODOs**
 
 * Introductory text about the fall school, docker, jupyter
+* add lecture update with git
 * Add Mac Docker install (do we offer Docker for Mac?)
 
 ## Enable Hardware-Virtualization
