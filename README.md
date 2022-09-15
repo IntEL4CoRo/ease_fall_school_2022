@@ -65,7 +65,12 @@ sudo groupadd docker # this may have already happened by installing docker
 sudo usermod -aG docker $USER
 newgrp docker # Or re-login to activate the changes in the usergroup
 ```
-Test installation and postinstall with 
+Start the docker daemon
+```
+sudo systemctl restart docker.service
+sudo systemctl restart docker.socket
+```
+Test installation and postinstall.
 ```
 docker run hello-world
 ```
