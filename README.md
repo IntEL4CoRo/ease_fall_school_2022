@@ -243,4 +243,4 @@ wsl --set-default Ubuntu-20.04-Cram
     
 ## Option 3: Use the VirtualBox image
     
-If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://www.google.com/search?q=sascha+ist+doof)
+If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://seafile.zfn.uni-bremen.de/d/0728fcdc7bb14db7819f/)
