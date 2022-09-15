@@ -35,7 +35,7 @@ Depending on your system, your choice may be limited. but we got you covered. Th
 * WSL2 image tar-ball: as fallback for other Windows systems
 * VirtualBox image: fallback for AMD CPUs and any OS whatsoever
 
-## Docker Setup
+## Option 1: Docker Setup
 
 <details><summary>Linux</summary>
 
@@ -212,7 +212,7 @@ docker container prune
       (for Windows users it's `docker compose ...` without the dash)
 5. copy the URL from the terminal into your favourite browser
 
-## WSL2 image install (tested with Win10)
+## Option 2: WSL2 image install (tested with Win10)
 
 Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker, at least for Windows host machines, because it utilized the GPU for rendering, while Docker only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. 
     
@@ -240,3 +240,8 @@ wsl --set-default Ubuntu-20.04-Cram
 2. `roslaunch cram_pr2_pick_place_demo sandbox.launch &`
 3. `jupyter-lab --allow-root --no-browser --port 8888`
 4. Open the URL in your browser
+
+    
+## Option 3: Use the VirtualBox image
+    
+If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://www.google.com/search?q=sascha+ist+doof)
