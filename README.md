@@ -95,7 +95,7 @@ sudo systemctl restart docker.socket
 ```
 If systemctl makes issues, try
 ```
-dockerd
+sudo dockerd
 ```
 or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run `dockerd` automatically on boot.
     
