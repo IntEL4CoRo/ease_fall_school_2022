@@ -223,7 +223,7 @@ docker container prune
       (for Windows users it's `docker compose ...` without the dash)
 5. copy the URL from the terminal into your favourite browser
 
-## Option 2: WSL2 image install (tested with Win10)
+## Option 2: WSL2 image install (recommended for Windows)
 
 Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker, at least for Windows host machines, because it utilized the GPU for rendering, while Docker only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. 
     
@@ -233,7 +233,7 @@ Windows Subsystem for Linux manages Linux distributions (operating systems) on a
 2. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
 3. Set up WSL 2
 4. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
-4. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/8960a515395f4a96b97b/)
+4. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/408f29b6c51943c185bb/)
 5. Import the image into WSL from Powershell with 
 ```
 wsl --import Ubuntu-20.04-Cram C:\Users\$env:UserName\Documents\Ubuntu-20.04-Cram C:\Users\$env:UserName\Downloads\Ubuntu2004RosCramJupyter.tar 
@@ -246,14 +246,6 @@ wsl --set-default Ubuntu-20.04-Cram
 8. `glxgears` will test the xforwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
 
 The WSL image's username and password is `cram`.
-    
-### How to launch the lecture into jupyter notebook
-1. Download the lecture
-    * `wget <some directory for the lecture>`
-2. `roslaunch cram_pr2_pick_place_demo sandbox.launch &`
-3. `jupyter-lab --allow-root --no-browser --port 8888`
-4. Open the URL in your browser
-
     
 ## Option 3: Use the VirtualBox image
     
