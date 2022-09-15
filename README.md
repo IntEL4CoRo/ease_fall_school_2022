@@ -234,20 +234,27 @@ Windows Subsystem for Linux manages Linux distributions (operating systems) on a
 Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv, WSL2 and Firewall setup.
     
 1. Enable Hardware Virtualization
-2. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
-3. Set up WSL 2
-4. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
-4. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/408f29b6c51943c185bb/)
-5. Import the image into WSL from Powershell with 
+2. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/408f29b6c51943c185bb/)
+3. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
+4. Enable Windows Subsystem for Linux in 'Turn Windows features on or off'
+5. Reboot your system to install the change
+6. Download and install [the WSL 2 update](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+7. Open Powershell **as administrator**
+```
+wsl --set-default-version 2
+```
+8. If it tells to enable virtualization, check the BIOS settings again to enable Hardware Virtualization (see also the beginning of this readme).
+9. Import the image into WSL from Powershell with 
 ```
 wsl --import Ubuntu-20.04-Cram C:\Users\$env:UserName\Documents\Ubuntu-20.04-Cram C:\Users\$env:UserName\Downloads\Ubuntu2004RosCramJupyter.tar 
 ```
-6. Set the image as default with
+10. Set the image as default with
 ```
 wsl --set-default Ubuntu-20.04-Cram
 ```
-7. Launch Ubuntu-20.04 from the windows menu.
-8. `glxgears` will test the xforwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
+10. Launch Ubuntu-20.04 from the windows menu.
+11. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
+12. `glxgears` will test the x-forwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
 
 The WSL image's username and password is `cram`.
     
