@@ -225,7 +225,7 @@ Windows Subsystem for Linux manages Linux distributions (operating systems) on a
 4. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/8960a515395f4a96b97b/)
 5. Import the image into WSL from Powershell with 
 ```
-wsl --import Ubuntu-20.04-Cram C:\Users\test\Documents\Ubuntu-20.04-Cram C:\Users\test\Downloads\Ubuntu2004RosCramJupyter.tar
+wsl --import Ubuntu-20.04-Cram C:\Users\$env:UserName\Documents\Ubuntu-20.04-Cram C:\Users\$env:UserName\Downloads\Ubuntu2004RosCramJupyter.tar 
 ```
 6. Set the image as default with
 ```
