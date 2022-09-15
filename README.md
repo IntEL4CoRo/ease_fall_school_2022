@@ -30,9 +30,9 @@ On Windows it offers some options for recovery, which is from the chosen trouble
 
 Depending on your system, your choice may be limited. but we got you covered. These are the options we offer:
 
-* Docker image: Linux native (tested with Debian), Windows with WSL2 and VcXsrv (tested with Win10 and Intel i7-4770K), and Mac (?!?)
-* WSL2 image tar-ball: as fallback for other Windows systems
-* VirtualBox image: fallback for AMD CPUs and any OS whatsoever
+* Option 1: Docker image: Linux native (tested with Debian), Windows with WSL2 and VcXsrv (complicated setup)
+* Option 2: WSL2 image tar-ball: recommended for Windows users
+* Option 3: VirtualBox image: fallback for AMD CPUs and any OS whatsoever
 
 ## Option 1: Docker Setup (recommended for Linux)
 
