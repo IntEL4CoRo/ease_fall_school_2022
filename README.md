@@ -233,6 +233,8 @@ wsl --set-default Ubuntu-20.04-Cram
 7. Launch Ubuntu-20.04 from the windows menu.
 8. `glxgears` will test the xforwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
 
+The WSL image's username and password is `cram`.
+    
 ### How to launch the lecture into jupyter notebook
 1. Download the lecture
     * `wget <some directory for the lecture>`
