@@ -69,6 +69,7 @@ Start the docker daemon (`sudo dockerd` if you don't use systemctl, or use [this
 ```
 sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
+# or run 'sudo dockerd' if you don't use systemctl 
 ```
 Test installation and postinstall.
 ```
@@ -91,7 +92,12 @@ If `docker-compose up` (see below, when starting a lecture) complains about conn
 sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
 ```
-
+If systemctl makes issues, try
+```
+dockerd
+```
+or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run `dockerd` automatically on boot.
+    
 If it still doesn't work, reinstall docker. First remove the current installation
 ```
 sudo apt prune docker-compose
