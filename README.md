@@ -228,10 +228,11 @@ docker container prune
 Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker, at least for Windows host machines, because it utilized the GPU for rendering, while Docker only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. 
     
 ### Import the WSL image into your WSL
-
+Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv, WSL2 and Firewall setup.
+    
 1. Enable Hardware Virtualization
 2. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
-3. Set up WSL 2
+3. Set up WSL 2 ()
 4. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
 4. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/408f29b6c51943c185bb/)
 5. Import the image into WSL from Powershell with 
