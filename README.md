@@ -203,9 +203,9 @@ VcXsrv is an X-server, that is able to visualize OpenGL application from remote 
 <details>
     <summary>Mac</summary>
 
-- **Write install guide explicitly** 
+Not tested, but [here's the install guide](https://docs.docker.com/desktop/install/mac-install/). Use on your own risk.
 
-https://docs.docker.com/desktop/install/mac-install/ 
+There's no guide to establish X-Forwarding out of the Docker container yet. Feel free to help us find a solution!
 
 </details>
 
