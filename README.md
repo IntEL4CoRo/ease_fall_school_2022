@@ -195,7 +195,7 @@ https://docs.docker.com/desktop/install/mac-install/
 
 </details>
 
-## Cleaning up docker images
+### Cleaning up docker images
 
 Docker can clutter your machine a lot, especially when you build your own images. Use the following commands to get rid uf unused images and containers.
 ```
@@ -203,7 +203,7 @@ docker image prune
 docker container prune
 ```
 
-## Getting the Lecture's docker container
+### Getting the Lecture's docker container
 
 1. Download this repo as zip and unpack it
 2. Open the terminal (bash, powershell, etc.) and change-directory (`cd`) to the repo
