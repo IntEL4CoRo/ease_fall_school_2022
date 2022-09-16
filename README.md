@@ -42,8 +42,7 @@ In any case, update the lecture content with `cd <path to the EASE repo>` and th
 <details>
 <summary>Linux</summary>
 
-Install utility software before installing Docker
-    
+Install utility software before installing Docker 
 ```bash
 sudo apt update
 sudo apt install \
@@ -52,7 +51,6 @@ sudo apt install \
     gnupg \
     lsb-release
 ```
-    
 Get keyring and Docker's package references
 ```bash
 sudo mkdir -p /etc/apt/keyrings
