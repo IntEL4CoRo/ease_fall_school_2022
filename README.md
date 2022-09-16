@@ -266,4 +266,4 @@ wsl --set-default Ubuntu-20.04
     
 ## Option 3: Use the VirtualBox image (recommended for MacOS and AMD users)
     
-If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://seafile.zfn.uni-bremen.de/d/0728fcdc7bb14db7819f/)
+If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://seafile.zfn.uni-bremen.de/d/0728fcdc7bb14db7819f/) and check out [this guide](https://cram-system.org/tutorials/demo/fetch_and_place) for how to configure it.
