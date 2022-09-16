@@ -39,7 +39,8 @@ In any case, update the lecture content with `cd <path to the EASE repo>` and th
 
 ## Option 1: Docker Setup (recommended for Linux)
 
-<details><summary>Linux</summary>
+<details>
+<summary>Linux</summary>
 
 We're going to do x-forwarding with OpenGL later, which hasn't been tested with the Wayland display manager, but with x11. Check your display manager like this:
 ```
@@ -90,7 +91,19 @@ sudo apt install x11-xserver-utils # installs the utils to allow foreign display
 xhost +local:docker # allows x-forwarding for the 'docker' group
 ```
 #### Troubleshoot when using docker:
-
+When xhost can't open the Display, find it with
+```
+ps -u $(id -u) -o pid= \
+    | xargs -I PID -r cat /proc/PID/environ 2> /dev/null \
+    | tr '\0' '\n' \
+    | grep ^DISPLAY=: \
+    | sort -u
+```
+and set it with
+```
+export DISPLAY=:0 # or :1. Put this line in your ~/.bashrc file
+```
+    
 When `docker run hello-world` doesn't work because of missing permissions, check
 ```
 groups
