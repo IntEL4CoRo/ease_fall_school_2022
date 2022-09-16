@@ -211,10 +211,18 @@ There's no guide to establish X-Forwarding out of the Docker container yet. Feel
 
 ### Cleaning up docker images
 
-Docker can clutter your machine a lot, especially when you build your own images. Use the following commands to get rid uf unused images and containers.
+Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. Use the following commands to clean up.
 ```
-docker image prune
-docker container prune
+docker images          # lists images
+docker container list  # lists containers
+
+docker system prune     # clears unused containers, images, networks and volumes all at once, in a safe manner
+docker container prune  # clears unused containers in a safe manner
+docker image prune      # clears unused images in a safe manner
+
+docker container stop <container id>  # stops the container
+docker container rm <container id>    # removes the container
+docker image rm <image name>          # removes an image, if no container is using it
 ```
 
 ### Getting the Lecture's docker container
@@ -234,7 +242,7 @@ Windows Subsystem for Linux manages Linux distributions (operating systems) on a
 Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv, WSL2 and Firewall setup.
     
 1. Enable Hardware Virtualization
-2. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/408f29b6c51943c185bb/)
+2. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/ca86a4d578a94bafa592/)
 3. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
 4. Enable Windows Subsystem for Linux in 'Turn Windows features on or off'
 5. Reboot your system to install the change
