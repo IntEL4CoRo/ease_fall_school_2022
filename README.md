@@ -235,11 +235,10 @@ docker image rm <image name>          # removes an image, if no container is usi
 
 ### Getting the Lecture's docker container
 
-1. Download this repo as zip and unpack it
+1. Download this repo as zip and unpack it, or use `git clone https://github.com/IntEL4CoRo/ease_fall_school_2022.git` if you have git installed.
 2. Open the terminal (bash, powershell, etc.) and change-directory (`cd`) to the repo
 3. Navigate to `DayX` (e.g. `Day1`)
-4. Execute `docker-compose --file docker-compose-<your OS specific suffix> up` and wait for the image to be pulled
-      (for Windows users it's `docker compose ...` without the dash)
+4. Execute `docker-compose up` and wait for the image to be pulled
 5. copy the URL from the terminal into your favourite browser
 
 ## Option 2: WSL2 image install (recommended for Windows)
