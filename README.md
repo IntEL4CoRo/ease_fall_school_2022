@@ -41,7 +41,13 @@ In any case, update the lecture content with `cd <path to the EASE repo>` and th
 
 <details><summary>Linux</summary>
 
-Install utility software first
+We're going to do x-forwarding with OpenGL later, which hasn't been tested with the Wayland display manager, but with x11. Check your display manager like this:
+```
+loginctl show-session $(awk '/tty/ {print $1}' <(loginctl)) -p Type | awk -F= '{print $2}'
+```
+If you want to switch to gdm3 (x11), [follow this guide](https://linuxconfig.org/how-to-enable-disable-wayland-on-ubuntu-20-04-desktop).
+
+Install utility software before installing Docker
 ```
 sudo apt update
 sudo apt install \
