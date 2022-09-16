@@ -2,17 +2,9 @@
 
 ## Start-Up
 
-Please install docker and docker-compose to your system. Here is the link for windows: https://hub.docker.com/editions/community/docker-ce-desktop-windows/ <br>
-Optional: Also install git (for windows: install git on windows: https://gitforwindows.org/)
+If you haven't done so, set your environment variables (e.g. to `C:\Users\user\.local\lib\python3.8\site-packages` for pip and `C:\Users\user\.local\lib\python3.10\site-packages` for additional packages
 
-set your environment variables (e.g. to `C:\Users\user\.local\lib\python3.8\site-packages` for pip and `C:\Users\user\.local\lib\python3.10\site-packages` for additional packages
-
-## Check if docker is installed correctly
-
-To check if docker is installed correctly, in your shell run `docker run hello-world`
-You will get a hello message if everything was installed correctly
-
-## Start up jupyter
+## Start up jupyter with docker
 
 To start up jupyter, we will use docker to start a standard jupyter notebok
 1. In your shell, run `docker run -p 8888:8888 jupyter/scipy-notebook`
