@@ -1,4 +1,4 @@
-# EASE Fall School 2022 - Web Knowledge Acquisition
+# EASE Fall School 2022 - Knowledge Graphs/ Web Knowledge Acquisition
 
 ## Start-Up
 
