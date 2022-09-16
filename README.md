@@ -260,10 +260,9 @@ wsl --import Ubuntu-20.04 C:\Users\$env:UserName\Documents\Ubuntu-20.04-FS C:\Us
 ```
 wsl --set-default Ubuntu-20.04
 ```
-12. Enter the password 'cram' for user 'cram'
-13. Launch Ubuntu-20.04 from the windows menu.
-14. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
-15. `glxgears` will test the x-forwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
+12. Launch Ubuntu-20.04 from the windows menu and enter the password 'cram' for the username 'cram'.
+13. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
+14. `glxgears` will test the x-forwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
     
 ## Option 3: Use the VirtualBox image (recommended for MacOS and AMD users)
     
