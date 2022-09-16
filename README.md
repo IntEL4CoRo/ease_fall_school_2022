@@ -244,17 +244,21 @@ Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv,
 wsl --set-default-version 2
 ```
 8. If it tells to enable virtualization, check the BIOS settings again to enable Hardware Virtualization (see also the beginning of this readme).
-9. Import the image into WSL from Powershell with 
+9. If you got any existing Ubuntu-20.04 distro installed, export it with
 ```
-wsl --import Ubuntu-20.04-Cram C:\Users\$env:UserName\Documents\Ubuntu-20.04-Cram C:\Users\$env:UserName\Downloads\Ubuntu2004RosCramJupyter.tar 
+wsl --export Ubuntu-20.04 C:\Users\$env:UserName\Documents\Ubuntu-20.04-Backup.tar
 ```
-10. Set the image as default with
+Then remove it
 ```
-wsl --set-default Ubuntu-20.04-Cram
+wsl --unregister Ubuntu-20.04
 ```
-11. Launch it and specify username:
+10. Import the prepared distro into WSL from Powershell with 
 ```
-wsl -u cram
+wsl --import Ubuntu-20.04 C:\Users\$env:UserName\Documents\Ubuntu-20.04-FS C:\Users\$env:UserName\Downloads\UbuntuFS.tar 
+```
+11. Set the image as default with
+```
+wsl --set-default Ubuntu-20.04
 ```
 12. Enter the password 'cram' for user 'cram'
 13. Launch Ubuntu-20.04 from the windows menu.
