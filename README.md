@@ -209,9 +209,9 @@ There's no guide to establish X-Forwarding out of the Docker container yet. Feel
 
 </details>
 
-### Cleaning up docker images
+### Cleaning up Docker
 
-Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. Use the following commands to clean up.
+Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. We re-use the same Docker image between the different lectures, so it's only downloaded once. But each lecture runs it's own container, which prevents another lecture to re-use the same image. Use the following commands to clean up.
 ```
 docker images          # lists images
 docker container list  # lists containers
@@ -221,6 +221,8 @@ docker container prune  # clears unused containers in a safe manner
 docker image prune      # clears unused images in a safe manner
 
 docker container stop <container id>  # stops the container
+
+# These will destroy stuff, so be careful. You can easily rebuild it with docker-compose
 docker container rm <container id>    # removes the container
 docker image rm <image name>          # removes an image, if no container is using it
 ```
