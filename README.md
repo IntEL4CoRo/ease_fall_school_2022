@@ -279,6 +279,6 @@ wsl --set-default Ubuntu-20.04
 13. Set Firewall to allow WSL comunication. Easiest by disabeling Firewall for public networks, but you can add a rule for WSL.
 14. `glxgears` will test the x-forwarding to VcXsrv. If nothing happens, check the VcXsrv and Firewall setup.
     
-## Option 3: Use the VirtualBox image (recommended for MacOS and AMD users)
+## Option 3: Use the VirtualBox image (recommended for MacOS and unmentioned OS)
     
 If you run MacOS or an AMD-based machine, use [this Virtualbox image](https://seafile.zfn.uni-bremen.de/d/0728fcdc7bb14db7819f/) and check out [this guide](https://cram-system.org/tutorials/demo/fetch_and_place) for how to configure it.
