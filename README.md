@@ -216,8 +216,9 @@ Docker can clutter your machine a lot, especially when you build your own images
 docker images          # lists images
 docker container list  # lists containers
 
-docker container prune  # clears unused containers in a safe mode
-docker image prune      # clears unused images in a safe mode
+docker system prune     # clears unused containers, images, networks and volumes all at once, in a safe manner
+docker container prune  # clears unused containers in a safe manner
+docker image prune      # clears unused images in a safe manner
 
 docker container stop <container id>  # stops the container
 docker container rm <container id>    # removes the container
