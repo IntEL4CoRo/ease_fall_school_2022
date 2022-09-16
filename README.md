@@ -234,7 +234,7 @@ Windows Subsystem for Linux manages Linux distributions (operating systems) on a
 Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv, WSL2 and Firewall setup.
     
 1. Enable Hardware Virtualization
-2. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/408f29b6c51943c185bb/)
+2. [Download the WSL image](https://seafile.zfn.uni-bremen.de/f/ca86a4d578a94bafa592/)
 3. [Install, configure and launch VcXsrv](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3)
 4. Enable Windows Subsystem for Linux in 'Turn Windows features on or off'
 5. Reboot your system to install the change
