@@ -43,7 +43,7 @@ In any case, update the lecture content with `cd <path to the EASE repo>` and th
 <summary>Linux</summary>
 
 Install utility software before installing Docker
-```
+```bash
 sudo apt update
 sudo apt install \
     ca-certificates \
@@ -52,7 +52,7 @@ sudo apt install \
     lsb-release
 ```
 Get keyring and Docker's package references
-```
+```bash
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
@@ -60,23 +60,23 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 Install docker-compose
-```
+```bash
 sudo apt install docker-compose
 ```
 #### Linux Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
-```
+```bash
 sudo groupadd docker # this may have already happened by installing docker
 sudo usermod -aG docker $USER
 newgrp docker # Or re-login to activate the changes in the usergroup
 ```
 Start the docker daemon (`sudo dockerd` if you don't use systemctl, or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run dockerd automatically on boot)
-```
+```bash
 sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
 # or run 'sudo dockerd' if you don't use systemctl 
 ```
 Test installation and postinstall.
-```
+```bash
 docker run hello-world
 ```
 Allow docker to open x-Applications, like the robot simulator
@@ -87,13 +87,13 @@ xhost +local:docker # allows x-forwarding for the 'docker' group
 #### Troubleshoot when using docker:
     
 We're doing x-forwarding with xhost, which hasn't been tested with the Wayland display manager, but with x11. Check your display manager like this:
-```
+```bash
 loginctl show-session $(awk '/tty/ {print $1}' <(loginctl)) -p Type | awk -F= '{print $2}'
 ```
 If you want to switch to gdm3 (x11), [follow this guide](https://linuxconfig.org/how-to-enable-disable-wayland-on-ubuntu-20-04-desktop).
     
 When xhost can't open the Display, find it with
-```
+```bash
 ps -u $(id -u) -o pid= \
     | xargs -I PID -r cat /proc/PID/environ 2> /dev/null \
     | tr '\0' '\n' \
@@ -101,29 +101,29 @@ ps -u $(id -u) -o pid= \
     | sort -u
 ```
 and set it with
-```
+```bash
 export DISPLAY=:0 # or :1. Put this line in your ~/.bashrc file
 ```
     
 When `docker run hello-world` doesn't work because of missing permissions, check
-```
+```bash
 groups
 ```
 and see if `docker` is listed. If it's not, check the *Linux Posinstall* above. If it is, re-login or reboot you machine to reset user permissions.
 
 If `docker-compose up` (see below, when starting a lecture) complains about connectivity issues, restart the docker service and socket:
-```
+```bash
 sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
 ```
 If systemctl makes issues, try
-```
+```bash
 sudo dockerd
 ```
 or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run `dockerd` automatically on boot.
     
 If it still doesn't work, reinstall docker. First remove the current installation
-```
+```bash
 sudo apt prune docker-compose
 ```
 and start from the top. `docker-compose` installs all the other required docker packages to run the lecture.
@@ -232,7 +232,7 @@ There's no guide to establish X-Forwarding out of the Docker container yet. Feel
 ### Cleaning up Docker
 
 Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. We re-use the same Docker image between the different lectures, so it's only downloaded once. But each lecture runs it's own container, which prevents another lecture to re-use the same image. Use the following commands to clean up.
-```
+```bash
 docker images          # lists images
 docker container list  # lists containers
 
@@ -269,24 +269,24 @@ Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv,
 5. Reboot your system to install the change
 6. Download and install [the WSL 2 update](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 7. Open Powershell **as administrator**
-```
+```powershell
 wsl --set-default-version 2
 ```
 8. If it tells to enable virtualization, check the BIOS settings again to enable Hardware Virtualization (see also the beginning of this readme).
 9. If you got any existing Ubuntu-20.04 distro installed, export it with
-```
+```powershell
 wsl --export Ubuntu-20.04 C:\Users\$env:UserName\Documents\Ubuntu-20.04-Backup.tar
 ```
 Then remove it
-```
+```powershell
 wsl --unregister Ubuntu-20.04
 ```
 10. Import the prepared distro into WSL from Powershell with 
-```
+```powershell
 wsl --import Ubuntu-20.04 C:\Users\$env:UserName\Documents\Ubuntu-20.04-FS C:\Users\$env:UserName\Downloads\UbuntuFS.tar 
 ```
 11. Set the image as default with
-```
+```powershell
 wsl --set-default Ubuntu-20.04
 ```
 12. Launch Ubuntu-20.04 from the windows menu and enter the password 'cram' for the username 'cram'.
