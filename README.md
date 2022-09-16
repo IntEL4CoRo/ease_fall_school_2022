@@ -211,10 +211,17 @@ There's no guide to establish X-Forwarding out of the Docker container yet. Feel
 
 ### Cleaning up docker images
 
-Docker can clutter your machine a lot, especially when you build your own images. Use the following commands to get rid uf unused images and containers.
+Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. Use the following commands to clean up.
 ```
-docker image prune
-docker container prune
+docker images          # lists images
+docker container list  # lists containers
+
+docker container prune  # clears unused containers in a safe mode
+docker image prune      # clears unused images in a safe mode
+
+docker container stop <container id>  # stops the container
+docker container rm <container id>    # removes the container
+docker image rm <image name>          # removes an image, if no container is using it
 ```
 
 ### Getting the Lecture's docker container
