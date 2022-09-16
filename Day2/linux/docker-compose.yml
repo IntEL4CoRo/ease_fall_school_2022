@@ -10,7 +10,6 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - KNOWROB_MEMORY_DIR=/home/neem_data
-      # - KNOWROB_MEMORY_DIR=/home/mineumann/NEEMTemps
     volumes:
       - "$HOME/.Xauthority:/root/.Xauthority:rw"
       - ../lectures:/home/lectures
@@ -21,8 +20,6 @@ services:
     image: mongo:4.4.3-bionic
     container_name: mongo_neem_gen
     network_mode: host
-    # ports:
-    #   - 127.0.0.1:27018:27017
     logging:
       driver: "none"
 
