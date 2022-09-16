@@ -29,9 +29,9 @@ On Windows it offers some options for recovery, which is from the chosen trouble
 
 Depending on your system, your choice may be limited. but we got you covered. These are the options we offer:
 
-* Option 1: Docker image: Linux native (tested with Debian), Windows with WSL2 and VcXsrv (complicated setup)
-* Option 2: WSL2 image tar-ball: recommended for Windows users
-* Option 3: VirtualBox image: fallback for AMD CPUs and any OS whatsoever
+* Option 1: Docker image: Linux native (tested with Debian on Intel and AMD CPU)
+* Option 2: WSL2 image tar-ball: Windows + WSL2 + VcXsrv (tested with Win10)
+* Option 3: VirtualBox image: fallback for any OS whatsoever
 
 ## Update the lecture's content
 
