@@ -7,10 +7,15 @@ services:
     container_name: cram_container
     network_mode: host
     privileged: true
+    #########
+    #  BEGIN Remove 
+    #  this section if docker-compose complains about network_mode: host and port forwarding on newer debian versions (22.04)
     ports:
       - "8888:8888"
     expose:
       - "8888"
+    #  END Remove
+    #########
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
