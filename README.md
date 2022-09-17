@@ -121,7 +121,7 @@ systemctl status docker.socket
 sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
 ```
-If systemctl doesn't work for your setup, e.g. when it only rund systemd, you can run `dockerd` automatically on boot with [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d).
+If systemctl doesn't work for your setup, e.g. when it runs on systemd, you can run `dockerd` automatically on boot with [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d).
 
 If the docker container is running, but there's still something wrong, you can open a bash in the container and debug yourself, e.g. check the value of the `DISPLAY` variable.
 ```
