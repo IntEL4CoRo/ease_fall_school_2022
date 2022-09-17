@@ -229,32 +229,6 @@ There's no guide to establish X-Forwarding out of the Docker container yet. Feel
 
 </details>
 
-### Cleaning up Docker
-
-Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. We re-use the same Docker image between the different lectures, so it's only downloaded once. But each lecture runs it's own container, which prevents another lecture to re-use the same image. Use the following commands to clean up.
-```bash
-docker images          # lists images
-docker container list  # lists containers
-
-docker system prune     # clears unused containers, images, networks and volumes all at once, in a safe manner
-docker container prune  # clears unused containers in a safe manner
-docker image prune      # clears unused images in a safe manner
-
-docker container stop <container id>  # stops the container
-
-# These will destroy stuff, so be careful. You can easily rebuild it with docker-compose
-docker container rm <container id>    # removes the container
-docker image rm <image name>          # removes an image, if no container is using it
-```
-
-### Getting the Lecture's docker container
-
-1. Download this repo as zip and unpack it, or use `git clone https://github.com/IntEL4CoRo/ease_fall_school_2022.git` if you have git installed.
-2. Open the terminal (bash, powershell, etc.) and change-directory (`cd`) to the repo
-3. Navigate to `DayX` (e.g. `Day1`)
-4. Execute `docker-compose up` and wait for the image to be pulled
-5. copy the URL from the terminal into your favourite browser
-
 ## Option 2: WSL2 image install (recommended for Windows)
 
 Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker, at least for Windows host machines, because it utilized the GPU for rendering, while Docker only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. 
@@ -296,3 +270,48 @@ wsl --set-default Ubuntu-20.04
 ## Option 3: Use the VirtualBox image (recommended for MacOS and unmentioned OS)
     
 We tested the setup extensively with all our available capabilities, which exludes non-x64 CPUs, non-Debian Linux systems, Win11 and 8.1, MacOS and other unmentioned operating systems. This means, that the above mentioned options may not work for your specific machine. If you want to save yourself some time and trouble, use [this Virtualbox image](https://seafile.zfn.uni-bremen.de/d/0728fcdc7bb14db7819f/) and check out [this guide](https://cram-system.org/tutorials/demo/fetch_and_place) for how to configure it. Keep in mind though, that this VM will perform much worse and should only be used as a fallback. 
+
+
+## Getting the Lecture's docker container
+
+1. Download this repo as zip and unpack it, or use `git clone https://github.com/IntEL4CoRo/ease_fall_school_2022.git` if you have git installed.
+2. Open the terminal (bash, powershell, etc.) and change-directory (`cd`) to the repo
+3. Navigate to `DayX` (e.g. `Day1`)
+4. Execute `docker-compose up` and wait for the image to be pulled
+5. copy the URL from the terminal into your favourite browser
+
+## Cleaning up Docker
+
+Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. We re-use the same Docker image between the different lectures, so it's only downloaded once. But each lecture runs it's own container, which prevents another lecture to re-use the same image. Use the following commands to clean up.
+```bash
+docker images          # lists images
+docker container list  # lists containers
+
+docker system prune     # clears unused containers, images, networks and volumes all at once, in a safe manner
+docker container prune  # clears unused containers in a safe manner
+docker image prune      # clears unused images in a safe manner
+
+docker container stop <container id>  # stops the container
+
+# These will destroy stuff, so be careful. You can easily rebuild it with docker-compose
+docker container rm <container id>    # removes the container
+docker image rm <image name>          # removes an image, if no container is using it
+```
+### Linux Cleanup
+If you want to completely get rid of docker on your Linux system do
+```bash
+sudo apt remove docker-compose                           # to remove the installation
+sudo apt purge docker-compose                            # to really get rid of it
+sudo rm /usr/local/lib/docker/cli-plugins/docker-compose # remove all user specific data
+```
+### Windows Cleanup
+In Powershell you can export the WSL image for later use
+```powershell
+wsl --export Ubuntu-20.04 C:\some\path\to\save\the-exported-image.tar
+```
+To remove the distro from WSL and destroy its filesystem, do
+```powershell
+wsl --unregister Ubuntu-20.04
+```
+Go to 'Add or Remove Programs' and delete VcXsrv. Then Restore your Firewall settings to default.
+
