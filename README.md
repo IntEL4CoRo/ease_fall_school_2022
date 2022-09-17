@@ -246,7 +246,7 @@ Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv,
 4. Enable Windows Subsystem for Linux in 'Turn Windows features on or off'
 5. Reboot your system to install the change
 6. Download and install [the WSL 2 update](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-7. Open Powershell **as administrator**
+7. Open Powershell **as administrator** and set the default version of WSL to 2
 ```powershell
 wsl --set-default-version 2
 ```
@@ -255,7 +255,7 @@ wsl --set-default-version 2
 ```powershell
 wsl --export Ubuntu-20.04 C:\Users\$env:UserName\Documents\Ubuntu-20.04-Backup.tar
 ```
-Then remove it
+Then remove it. After the Fall School you can [import it back](https://4sysops.com/archives/export-and-import-windows-subsystem-for-linux-wsl/)
 ```powershell
 wsl --unregister Ubuntu-20.04
 ```
