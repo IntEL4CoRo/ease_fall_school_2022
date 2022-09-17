@@ -39,7 +39,7 @@ In any case, update the lecture content with `cd <path to the EASE repo>` and th
 
 ## Option 1: Docker Setup (recommended for Linux)
 
-For Linux users, the `docker-compose` package includes all necessary functionality. The Lecture's software is build with docker-compose.yml files, which enable easy maintainance of collaborating Docker images.
+For Linux users, the `docker-compose` package includes all necessary functionality. The Lecture's software is build with docker-compose.yml files, which enable easy maintainance of collaborating Docker images. Docker on Windows relies on Docker Desktop, which needs a Linux kernel to run Containers, and to visualize X-Applications it also needs an X-Server. VcXsrv does work and only needs minimal configuration, while xMing can't handle OpenGL/Glut rendering as well. But the setup requires lots of tweaking the Firewall and getting things connected, so instead we chose to prepare a WSL image and run Docker from there (see Option 2). For MacOS we weren't able to test X-Forwarding, and without visualization of the simulator, the Docker image can't operate at all.
 
 ### Linux
 
@@ -85,7 +85,7 @@ Allow docker to open x-Applications, like the robot simulator
 sudo apt install x11-xserver-utils # installs the utils to allow foreign displays
 xhost +local:docker # allows x-forwarding for the 'docker' group
 ```
-#### Troubleshoot when using docker:
+#### Troubleshoot
     
 We're doing x-forwarding with xhost, which hasn't been tested with the Wayland display manager, but with x11. Check your display manager like this:
 ```bash
