@@ -29,12 +29,12 @@ On Windows it offers some options for recovery, which is from the chosen trouble
 
 Depending on your system, your choice may be limited. but we got you covered. These are the options we offer:
 
-* Option 1: Docker image -- Linux native (tested with Debian)
+* Option 1: Docker Compose -- Linux native (tested with Debian)
 * Option 2: WSL2 tar-ball import with pre-installed Docker -- Windows + WSL2 + VcXsrv (tested with Win10)
 * Option 3: VirtualBox image -- fallback for any OS whatsoever
 * Option 4: Collaboration -- when it just won't work on your system, find someone and work on the lectures together. This is completely platform-independent :)
 
-## Option 1: Docker Setup (recommended for Linux)
+## Option 1: Docker Compose Setup (recommended for Linux)
 
 For Linux users, the `docker-compose` package includes all necessary functionality. The lecture's software is build with docker-compose.yml files, which enable easy maintainance of collaborating Docker images. Docker on Windows relies on Docker Desktop, which needs a Linux kernel to run Containers, and to visualize X-Applications it also needs an X-Server. VcXsrv does work and only needs minimal configuration, while xMing can't handle OpenGL/Glut rendering as well. But the setup requires lots of tweaking the Firewall and getting things connected, so instead we chose to prepare a WSL image and run Docker from there (see Option 2). For MacOS we weren't able to test X-Forwarding, and without visualization of the simulator, the lecture for CRAM can't operate at all.
 
@@ -123,6 +123,16 @@ sudo systemctl restart docker.service
 sudo systemctl restart docker.socket
 ```
 If systemctl doesn't work for your setup, e.g. when it runs on systemd, you can run `dockerd` automatically on boot with [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d).
+
+Ubuntu 22.04 (Jammy Jellyfish) has no current release of Docker Compose, but can still be installed. You need to adjust the `docker-compose.yml` though, and delete the entries for port forwarding, which 22.04 can't handle with the setting `network_mode: host`. These lines can be removed:
+```yaml
+...
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+...
+```
 
 If the docker container is running, but there's still something wrong, you can open a bash in the container and debug yourself, e.g. check the value of the `DISPLAY` variable.
 ```
