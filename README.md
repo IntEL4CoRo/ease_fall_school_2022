@@ -29,12 +29,12 @@ On Windows it offers some options for recovery, which is from the chosen trouble
 
 Depending on your system, your choice may be limited. but we got you covered. These are the options we offer:
 
-* Option 1: Docker image -- Linux native (tested with Debian)
+* Option 1: Docker Compose -- Linux native (tested with Debian)
 * Option 2: WSL2 tar-ball import with pre-installed Docker -- Windows + WSL2 + VcXsrv (tested with Win10)
 * Option 3: VirtualBox image -- fallback for any OS whatsoever
 * Option 4: Collaboration -- when it just won't work on your system, find someone and work on the lectures together. This is completely platform-independent :)
 
-## Option 1: Docker Setup (recommended for Linux)
+## Option 1: Docker Compose Setup (recommended for Linux)
 
 For Linux users, the `docker-compose` package includes all necessary functionality. The lecture's software is build with docker-compose.yml files, which enable easy maintainance of collaborating Docker images. Docker on Windows relies on Docker Desktop, which needs a Linux kernel to run Containers, and to visualize X-Applications it also needs an X-Server. VcXsrv does work and only needs minimal configuration, while xMing can't handle OpenGL/Glut rendering as well. But the setup requires lots of tweaking the Firewall and getting things connected, so instead we chose to prepare a WSL image and run Docker from there (see Option 2). For MacOS we weren't able to test X-Forwarding, and without visualization of the simulator, the lecture for CRAM can't operate at all.
 
