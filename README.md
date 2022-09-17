@@ -124,6 +124,16 @@ sudo systemctl restart docker.socket
 ```
 If systemctl doesn't work for your setup, e.g. when it runs on systemd, you can run `dockerd` automatically on boot with [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d).
 
+Ubuntu 22.04 (Jammy Jellyfish) has no current release of Docker Compose, but can still be installed. You need to adjust the `docker-compose.yml` though, and delete the entries for port forwarding, whcih 22.04 can't handle with the setting `network_mode: host`. These lines can be removed:
+```yaml
+...
+    ports:
+      - "8888:8888"
+    expose:
+      - "8888"
+...
+```
+
 If the docker container is running, but there's still something wrong, you can open a bash in the container and debug yourself, e.g. check the value of the `DISPLAY` variable.
 ```
 docker exec -it <container name> /bin/bash  # Opens a bash in the container. Check 'docker container list' to get the name
