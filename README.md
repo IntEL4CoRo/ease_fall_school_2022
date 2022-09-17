@@ -33,10 +33,6 @@ Depending on your system, your choice may be limited. but we got you covered. Th
 * Option 2: WSL2 tar-ball import with pre-installed Docker -- Windows + WSL2 + VcXsrv (tested with Win10)
 * Option 3: VirtualBox image -- fallback for any OS whatsoever
 
-## Update the lecture's content
-
-In any case, update the lecture content with `cd <path to the EASE repo>` and then `git pull`, to get the latest version. We're constantly adding new stuff, probably even a few moments before the lecture starts!
-
 ## Option 1: Docker Setup (recommended for Linux)
 
 For Linux users, the `docker-compose` package includes all necessary functionality. The Lecture's software is build with docker-compose.yml files, which enable easy maintainance of collaborating Docker images. Docker on Windows relies on Docker Desktop, which needs a Linux kernel to run Containers, and to visualize X-Applications it also needs an X-Server. VcXsrv does work and only needs minimal configuration, while xMing can't handle OpenGL/Glut rendering as well. But the setup requires lots of tweaking the Firewall and getting things connected, so instead we chose to prepare a WSL image and run Docker from there (see Option 2). For MacOS we weren't able to test X-Forwarding, and without visualization of the simulator, the Docker image can't operate at all.
@@ -278,6 +274,10 @@ We tested the setup extensively with all our available capabilities, which exlud
 4. Execute `docker-compose up` and wait for the image to be pulled
 5. copy the URL from the terminal into your favourite browser
 
+## Update the lecture's content
+
+In any case, update the lecture content with `cd <path to the EASE repo>` and then `git pull`, to get the latest version. We're constantly adding new stuff, probably even a few moments before the lecture starts!
+    
 ## Cleaning up Docker
 
 Docker can clutter your machine a lot, especially when you build your own images. A container can hold you back from removing images that it uses, so remove the container first, then the image. We re-use the same Docker image between the different lectures, so it's only downloaded once. But each lecture runs it's own container, which prevents another lecture to re-use the same image. Use the following commands to clean up.
