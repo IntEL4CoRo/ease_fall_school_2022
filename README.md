@@ -63,9 +63,9 @@ sudo apt install docker-compose
 #### Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
 Give your user permission to use Docker by adding it to the 'docker' group
 ```bash
-sudo groupadd docker          # created the group 'docker'. It may already exist through the installtaion
+sudo groupadd docker          # creates the group 'docker'. It may already exist through the installtaion
 sudo usermod -aG docker $USER # adds the current user to the group 'docker'
-newgrp docker                 # activates the changes in group management
+newgrp docker                 # activates the changes in group management.
 ```
 Start the docker daemon
 ```bash
