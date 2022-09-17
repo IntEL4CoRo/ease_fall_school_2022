@@ -61,26 +61,24 @@ Install docker-compose
 sudo apt install docker-compose
 ```
 #### Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
+Give your user permission to use Docker by adding it to the 'docker' group
 ```bash
-sudo groupadd docker # this may have already happened by installing docker
-sudo usermod -aG docker $USER
-newgrp docker # Or re-login to activate the changes in the usergroup
+sudo groupadd docker          # created the group 'docker'. It may already exist through the installtaion
+sudo usermod -aG docker $USER # adds the current user to the group 'docker'
+newgrp docker                 # activates the changes in group management
 ```
-Start the docker daemon (`sudo dockerd` if you don't use systemctl, or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run dockerd automatically on boot)
+Start the docker daemon
 ```bash
-sudo dockerd
-sudo systemctl restart docker.service
-sudo systemctl restart docker.socket
-# or run 'sudo dockerd' if you don't use systemctl 
+sudo dockerd # makes sure the daemon runs. They may already be running though.
 ```
-Test installation and postinstall.
+Test installation and postinstall
 ```bash
 docker run hello-world
 ```
 Allow docker to open x-Applications, like the robot simulator
 ```
 sudo apt install x11-xserver-utils # installs the utils to allow foreign displays
-xhost +local:docker # allows x-forwarding for the 'docker' group
+xhost +local:docker                # allows x-forwarding for the 'docker' group
 ```
 #### Troubleshoot
     
