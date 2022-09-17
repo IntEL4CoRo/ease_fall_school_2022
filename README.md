@@ -110,16 +110,6 @@ groups
 ```
 and see if `docker` is listed. If it's not, check the *Linux Posinstall* above. If it is, re-login or reboot you machine to reset user permissions.
 
----
-Start the docker daemon (`sudo dockerd` if you don't use systemctl, or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run dockerd automatically on boot)
-```bash
-sudo dockerd
-sudo systemctl restart docker.service
-sudo systemctl restart docker.socket
-# or run 'sudo dockerd' if you don't use systemctl 
-```
----
-
 If `docker-compose up` (see below, when starting a lecture) complains about issues about services or processes, run
 ```bash
 sudo dockerd
