@@ -39,8 +39,9 @@ In any case, update the lecture content with `cd <path to the EASE repo>` and th
 
 ## Option 1: Docker Setup (recommended for Linux)
 
-<details>
-<summary>Linux</summary>
+For Linux users, the `docker-compose` package includes all necessary functionality. The Lecture's software is build with docker-compose.yml files, which enable easy maintainance of collaborating Docker images.
+
+### Linux
 
 Install utility software before installing Docker 
 ```bash
@@ -63,7 +64,7 @@ Install docker-compose
 ```bash
 sudo apt install docker-compose
 ```
-#### Linux Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
+#### Postinstall ([troubleshoot here](https://docs.docker.com/engine/install/linux-postinstall/))
 ```bash
 sudo groupadd docker # this may have already happened by installing docker
 sudo usermod -aG docker $USER
@@ -128,11 +129,8 @@ sudo apt prune docker-compose
 ```
 and start from the top. `docker-compose` installs all the other required docker packages to run the lecture.
 
-</details>
-
 <details>
     <summary>Windows</summary>
-    
     
 Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem for Linux (WSL). And since we are running the robot simulation as an OpenGL application in the Docker container, we also need proper x-forwarding back to the Windows display to visualize it. Check the [docker install](https://docs.docker.com/desktop/install/windows-install/) and [WSL with VcXsrv x-server](https://medium.com/javarevisited/using-wsl-2-with-x-server-linux-on-windows-a372263533c3) guides yourself if you want, this is the gist of it. 
 
