@@ -235,7 +235,7 @@ There's no guide to establish X-Forwarding out of the Docker container yet. Feel
 
 ## Option 2: WSL2 image install (recommended for Windows)
 
-Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker, at least for Windows host machines, because it utilized the GPU for rendering, while Docker only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. 
+Windows Subsystem for Linux manages Linux distributions (operating systems) on a Windows host machine. Running the lecture directly from WSL is way smoother that from Docker Desktop, at least for Windows host machines, because it can utilize the GPU for rendering, while Docker Desktop on Windows only works on the CPU, for now. We prepared a WSL image, which is based on Ubuntu 20.04 and has all the necessary software preinstalled, so you can plug and play the lectures. And don't be intimidated by the terminal if you've never worked with Linux before. The key is to read the response from each command to know if it was successful or not. When in doubt, we have multiple tutors that are happy to explain things for individual students during the lecture.
     
 ### Import the WSL image into your WSL
 Most of these steps are elaborated in the Docker setup for Windows, like VcXsrv, WSL2 and Firewall setup.
