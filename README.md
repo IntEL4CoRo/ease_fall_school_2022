@@ -101,7 +101,8 @@ and set it with
 ```bash
 export DISPLAY=:0 # or :1. Put this line in your ~/.bashrc file
 ```
-    
+The Docker container inherits the `DISPLAY` variable from your host system.
+
 When `docker run hello-world` doesn't work because of missing permissions, check
 ```bash
 groups
@@ -118,7 +119,13 @@ If systemctl makes issues, try
 sudo dockerd
 ```
 or use [this procedure](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d) to run `dockerd` automatically on boot.
-    
+
+If the docker container is running, but there's still something wrong, you can open a bash in the container and debug yourself, e.g. check the value of the `DISPLAY` variable.
+```
+docker exec -it <container name> /bin/bash  # Opens a bash in the container. Check 'docker container list' to get the name
+$ echo $DISPLAY                             # executed in the container's bash, you can check the DISPLAY variable's value.
+```
+
 If it still doesn't work, reinstall docker. First remove the current installation
 ```bash
 sudo apt prune docker-compose
@@ -156,7 +163,6 @@ Docker on Windows needs a Linux kernel, this is solved with Windows Subsystem fo
   * `sudo apt upgrade` installs updates. This may take a while...
   * `sudo apt install mesa-utils` installs OpenGL utilities to test the x-forwarding
   
-    
 Congratulations, you got yourself a Linux system running on Windows. 
 
 #### Set up VcXsrv as x-server for OpenGL applications
@@ -268,6 +274,7 @@ We tested the setup extensively with all our available capabilities, which exlud
 
 ## Getting the Lecture's docker container
 
+0. Make sure that your X-Forwarding works properly (see setup guides)
 1. Download this repo as zip and unpack it, or use `git clone https://github.com/IntEL4CoRo/ease_fall_school_2022.git` if you have git installed.
 2. Open the terminal (bash, powershell, etc.) and change-directory (`cd`) to the repo
 3. Navigate to `DayX` (e.g. `Day1`)
@@ -311,5 +318,5 @@ To remove the distro from WSL and destroy its filesystem, do
 ```powershell
 wsl --unregister Ubuntu-20.04
 ```
-Go to 'Add or Remove Programs' and delete VcXsrv. Then Restore your Firewall settings to default.
+Go to 'Add or Remove Programs' and delete VcXsrv. Then reset your Firewall settings to default.
 
