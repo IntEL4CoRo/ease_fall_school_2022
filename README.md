@@ -32,6 +32,7 @@ Depending on your system, your choice may be limited. but we got you covered. Th
 * Option 1: Docker image -- Linux native (tested with Debian)
 * Option 2: WSL2 tar-ball import with pre-installed Docker -- Windows + WSL2 + VcXsrv (tested with Win10)
 * Option 3: VirtualBox image -- fallback for any OS whatsoever
+* Option 4: Collaboration -- when it just won't work on your system, find someone and work on the lectures together. This is completely platform-independent :)
 
 ## Option 1: Docker Setup (recommended for Linux)
 
