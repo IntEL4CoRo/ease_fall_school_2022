@@ -2,7 +2,7 @@
 
 Welcome!
 
-Here is the content for the hands-on lecture for the EASE Fall School 2022. We use Docker to provide the software to you, such that you can interact with it on your host machine. Within these Docker containers we provide Jupyter Notebook content, which is a web-platform for the Browser. Jupyter Notebook is a combination of a Markdown document, and code blocks, which allows the user to execute code in the browser and read the explanation of it all in one place.
+Here is the content for the hands-on lecture for the EASE Fall School 2022. We use Docker to provide the software to you, such that you can interact with it on your host machine. Within these Docker containers we provide Jupyter Notebook content, which is a web-platform for the Browser. Jupyter Notebook is a combination of a Markdown document and code blocks, which allows the user to execute code in the browser and read the explanation of it all in one place.
 
 ## Enable Hardware-Virtualization
 
