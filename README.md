@@ -1,11 +1,8 @@
 # EASE Fall School 2022
 
-This guide is for the lectures that run in a virtualized enviroment, which are Day1, Day2 and Day4.
+Welcome!
 
-**TODOs**
-
-* Introductory text about the fall school, docker, jupyter
-* Add Mac Docker install (do we offer Docker for Mac?)
+Here is the content for the hands-on lecture for the EASE Fall School 2022. We use Docker to provide the software to you, such that you can interact with it on your host machine. Within these Docker containers we provide Jupyter Notebook content, which is a web-platform for the Browser. Jupyter Notebook is a combination of a Markdown document, and code blocks, which allows the user to execute code in the browser and read the explanation of it all in one place.
 
 ## Enable Hardware-Virtualization
 
