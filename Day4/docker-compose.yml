@@ -4,7 +4,7 @@ services:
     image: mongo:4.4.3-bionic
     container_name: mongo_container
     ports:
-      - 127.0.0.1:27018:27017
+      - 127.0.0.1:27017:27017
     logging:
       driver: "none"
 
@@ -15,11 +15,12 @@ services:
     depends_on:
       - 'mongo'
     environment:
-      - KNOWROB_MONGODB_URI=mongodb://127.0.0.1:27018/?appname=knowrob
+      - KNOWROB_MONGODB_URI=mongodb://127.0.0.1:27017/?appname=knowrob
     network_mode: host
     entrypoint: ["/run_knowrob_local.sh"]
     volumes:
       - ./prolog:/prolog
+      - ./data:/neem_data
 
       # the KnowRob container
   jupyter_knowrob:
