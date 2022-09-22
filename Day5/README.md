@@ -10,4 +10,4 @@ In order to prepare technically for the course, please follow the preparation at
 
 # 3. Tutorials
 
-The topics and assignments covered in this course at to be found at (see [contents](http://robosherlock.org/tutorials/ease_fall_school_assignements.html)).
+The topics and assignments covered in this course are to be found at (see [contents](http://robosherlock.org/tutorials/ease_fall_school_assignements.html)).
