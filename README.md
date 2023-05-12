@@ -4,13 +4,6 @@ Welcome!
 
 Here is the content for the hands-on lecture for the EASE Fall School 2022. We use Docker to provide the software to you, such that you can interact with it on your host machine. Within these Docker containers we provide Jupyter Notebook content, which is a web-platform for the Browser. Jupyter Notebook is a combination of a Markdown document and code blocks, which allows the user to execute code in the browser and read the explanation of it all in one place.
 
-## Get start with BinderHub
-Try it on mybinder: https://mybinder.org/v2/gh/IntEL4CoRo/ease_fall_school_2022.git/binderhub
-
-Or self-host BinderHub server.
-[https://{self-host-binderhub}/v2/gh/IntEL4CoRo/ease_fall_school_2022.git/binderhub](https://{self-host-binderhub}/v2/gh/IntEL4CoRo/ease_fall_school_2022.git/binderhub)
-
-
 ## Enable Hardware-Virtualization
 
 Hardware Virtualization is a setting for your CPU, that enables it to run virtual operating systems on your host machine. Depending on your host system, the lectures of the Fall School run in Docker, the Windows Subsystem for Linux or a VirtualBox VM. All of these option use virtualization of another operating system underneath your existing one. We offer our software like that, such that we can ensure that it runs on a manifold of different systems. 
