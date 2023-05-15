@@ -11,4 +11,4 @@ RUN jupyter lab workspaces import /home/${NB_USER}/ease_fall_school_2022/binder/
 
 WORKDIR /home/${NB_USER}/ease_fall_school_2022/
 
-ENTRYPOINT ["/home/${NB_USER}/ease_fall_school_2022/binder/init.sh"]
+ENTRYPOINT ["./binder/init.sh"]
