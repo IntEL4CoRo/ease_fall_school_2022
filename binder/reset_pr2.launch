@@ -1,0 +1,6 @@
+<launch>
+  <arg name="msg_file" default="/home/jovyan/reset_pr2.txt"/>
+  <node pkg="rostopic" type="rostopic" name="reset_pr2" 
+        args="pub /tf tf2_msgs/TFMessage --file $(arg msg_file) --once" 
+   />
+</launch>
